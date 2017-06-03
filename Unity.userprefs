@@ -1,0 +1,118 @@
+﻿<Properties StartupItem="Assembly-CSharp.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Projects\Shared\Scripts\Utilities\NetValueObject.cs">
+    <Files>
+      <File FileName="Assets\Projects\Telexistence\Scripts\GameComponents\TelubeeOVRCamera.cs" Line="403" Column="1" />
+      <File FileName="Assets\Data\RobotsMap.xml" Line="2" Column="56" />
+      <File FileName="Assets\Projects\Telexistence\Scripts\CameraSource\OvrvisionSource.cs" Line="57" Column="33" />
+      <File FileName="Assets\Projects\Telexistence\Tests\URCorrelation\URDataManagerExp1.cs" Line="1" Column="1" />
+      <File FileName="Assets\Projects\Telexistence\Tests\URCorrelation\URDataSource.cs" Line="1" Column="1" />
+      <File FileName="Assets\Projects\Telexistence\Scenes\VRDisabler.cs" Line="1" Column="1" />
+      <File FileName="Assets\Projects\Telexistence\Scripts\RobotControl\HeadController\SinHeadController.cs" Line="1" Column="1" />
+      <File FileName="Assets\Projects\Telexistence\Scripts\GameComponents\LeapMotionRenderer.cs" Line="1" Column="1" />
+      <File FileName="Assets\Libraries\LeapMotion\Scripts\LeapImageBasedMaterial.cs" Line="1" Column="1" />
+      <File FileName="Assets\Projects\Telexistence\Scripts\GameComponents\LeapMotionImageStreamer.cs" Line="1" Column="1" />
+      <File FileName="Assets\Libraries\LeapMotion\Scripts\LeapImageRetriever.cs" Line="1" Column="1" />
+      <File FileName="Assets\Projects\Telexistence\Tests\URCorrelation\URExperimentManager.cs" Line="1" Column="1" />
+      <File FileName="Assets\Libraries\DataLib\Scripts\ExperimentManager.cs" Line="1" Column="1" />
+      <File FileName="Assets\Projects\Telexistence\Scripts\CameraSource\LocalWebcameraSource.cs" Line="1" Column="1" />
+      <File FileName="Assets\Projects\Telexistence\Scripts\CameraSource\NetworkCameraSource.cs" Line="1" Column="1" />
+      <File FileName="Assets\Projects\Telexistence\Scripts\RobotControl\RobotInfo\RobotInfo.cs" Line="1" Column="1" />
+      <File FileName="Assets\Libraries\Ovrvision\COvrvisionUnity.cs" Line="256" Column="2" />
+      <File FileName="Assets\Projects\Telexistence\Scripts\GameComponents\RobotConnectionComponent.cs" Line="1" Column="1" />
+      <File FileName="Assets\Projects\Telexistence\Scripts\RobotControl\RTPRobotCommunicator.cs" Line="1" Column="1" />
+      <File FileName="Assets\Libraries\GStreamerUnity\Scripts\GstNetworkMultipleTexture.cs" Line="50" Column="26" />
+      <File FileName="Assets\Projects\Telexistence\Scripts\CameraSource\MultipleNetworkCameraSource.cs" Line="63" Column="20" />
+      <File FileName="Assets\Projects\Telexistence\Scripts\CameraController\RenderMesh\WebcameraRenderMesh.cs" Line="194" Column="14" />
+      <File FileName="Assets\Data\CameraConfigurations.xml" Line="1" Column="1" />
+      <File FileName="Assets\Projects\Telexistence\Scripts\CameraController\VideoParametersController.cs" Line="27" Column="1" />
+      <File FileName="Assets\Projects\Shared\Scripts\Utilities\NetValueObject.cs" Line="289" Column="15" />
+      <File FileName="Assets\Resources\Blitter.shader" Line="1" Column="1" />
+      <File FileName="Assets\Resources\WebCamShader.shader" Line="35" Column="48" />
+      <File FileName="Assets\Projects\Telexistence\Scripts\CameraSource\CamConfig\CameraConfigurations.cs" Line="87" Column="34" />
+      <File FileName="Assets\Projects\Telexistence\Scripts\CameraController\RenderMesh\RicohThetaRenderMesh.cs" Line="1" Column="1" />
+      <File FileName="Assets\Libraries\GStreamerUnity\Scripts\GstMultipleNetworkVideoPlayer.cs" Line="148" Column="67" />
+      <File FileName="Assets\Libraries\GStreamerUnity\Scripts\GStreamerCore.cs" Line="1" Column="1" />
+      <File FileName="Assets\Libraries\GStreamerUnity\Scripts\GstBaseTexture.cs" Line="66" Column="2" />
+      <File FileName="Assets\Projects\Telexistence\Scripts\CameraSource\ICameraSource.cs" Line="10" Column="1" />
+      <File FileName="..\..\ovrvision\UnityTest\Assets\OvrvisionPro\Scripts\Ovrvision.cs" Line="1" Column="1" />
+      <File FileName="Assets\Projects\Telexistence\Scenes\LatencyTester.cs" Line="155" Column="21" />
+      <File FileName="Assets\Projects\Telexistence\Scripts\GameComponents\CameraBrightnessController.cs" Line="1" Column="1" />
+      <File FileName="Assets\Projects\NEDO\Scripts\UI\UINEDOBrightness.cs" Line="1" Column="1" />
+      <File FileName="Assets\Libraries\DataLib\Scripts\DBWriter.cs" Line="1" Column="1" />
+      <File FileName="Assets\Projects\Layered Presence\Scripts\Components\PresenceLayerManagerComponent.cs" Line="1" Column="1" />
+      <File FileName="Assets\Projects\Layered Presence\Scripts\Components\PresenceLayerComponent.cs" Line="1" Column="1" />
+      <File FileName="Assets\Projects\Telexistence\Scripts\CameraController\RenderMesh\CustomRenderMesh.cs" Line="111" Column="5" />
+      <File FileName="Assets\Resources\DistortionCorrection.shader" Line="25" Column="1" />
+      <File FileName="Assets\Projects\Telexistence\Scripts\CameraController\RenderMesh\OVRVisionRenderMesh.cs" Line="145" Column="34" />
+      <File FileName="..\..\Keijiro\KvantGrass-master\KvantGrass-master\Assets\ColorSuite\Shader\ColorSuite.shader" Line="1" Column="1" />
+      <File FileName="..\..\Keijiro\KvantGrass-master\KvantGrass-master\Assets\ColorSuite\ColorSuite.cs" Line="1" Column="1" />
+      <File FileName="Assets\Libraries\CoherentUI\Editor\CoherentUI\CoherentPostProcessor.cs" Line="204" Column="48" />
+      <File FileName="Assets\Projects\Shared\Scripts\Editor\PxKitPostprocess.cs" Line="48" Column="4" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="Unity" expanded="True">
+            <Node name="Assembly-CSharp" expanded="True" />
+            <Node name="Assembly-CSharp-Editor" expanded="True">
+              <Node name="Libraries" expanded="True">
+                <Node name="CoherentUI" expanded="True">
+                  <Node name="Editor" expanded="True">
+                    <Node name="CoherentUI" expanded="True" />
+                  </Node>
+                </Node>
+              </Node>
+              <Node name="Projects" expanded="True">
+                <Node name="Shared" expanded="True">
+                  <Node name="Scripts" expanded="True">
+                    <Node name="Editor" expanded="True" />
+                  </Node>
+                </Node>
+              </Node>
+            </Node>
+            <Node name="Assembly-CSharp-firstpass" expanded="True">
+              <Node name="Data" expanded="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+      <Pad Id="MonoDevelop.Debugger.WatchPad">
+        <State />
+      </Pad>
+      <Pad Id="MonoDevelop.NUnit.TestPad">
+        <State name="__root__">
+          <Node name="Unity" expanded="True" selected="True" />
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore>
+      <Breakpoint file="C:\Development\GIT\Telexistence\gateway\Unity\Assets\Projects\Simulator\Scripts\RobotModel\TelesarVArmModel.cs" line="38" column="26" />
+      <Breakpoint file="C:\Development\GIT\Telexistence\gateway\Unity\Assets\Projects\Telexistence\Scripts\CameraController\TelubeeCameraRenderer.cs" line="167" column="50" />
+      <Breakpoint file="C:\Development\GIT\Telexistence\gateway\Unity\Assets\Projects\Telexistence\Scripts\CameraSource\MultipleNetworkCameraSource.cs" line="44" column="29" />
+      <Breakpoint file="C:\Development\GIT\Telexistence\gateway\Unity\Assets\Projects\Telexistence\Scripts\GameComponents\TelubeeOVRCamera.cs" line="323" column="8" />
+      <Breakpoint file="C:\Development\GIT\Telexistence\gateway\Unity\Assets\Projects\Telexistence\Scripts\GameComponents\TelubeeOVRCamera.cs" line="318" column="22" />
+      <Breakpoint file="C:\Development\GIT\Telexistence\gateway\Unity\Assets\Projects\Telexistence\Scripts\GameComponents\TelubeeOVRCamera.cs" line="268" column="16" />
+      <Breakpoint file="C:\Users\Torso\Documents\Development\gateway\Unity\Assets\Projects\Telexistence\Scripts\RobotControl\Serializer\WebRTCDataChannel.cs" line="50" column="20" />
+      <Breakpoint file="C:\Users\Torso\Documents\Development\gateway\Unity\Assets\Projects\Telexistence\Scripts\RobotControl\Serializer\WebRTCDataChannel.cs" line="56" column="18" />
+      <Breakpoint file="C:\Users\Torso\Documents\Development\gateway\Unity\Assets\Projects\Telexistence\Scripts\RobotControl\Serializer\WebRTCDataChannel.cs" line="74" column="27" />
+      <Breakpoint file="C:\Users\Torso\Documents\Development\gateway\Unity\Assets\Projects\Telexistence\Scripts\RobotControl\Serializer\RTCSocket.cs" line="57" column="25" />
+      <Breakpoint file="C:\Users\Torso\Documents\Development\gateway\Unity\Assets\Projects\Simulator\Scripts\RobotModel\SHData.cs" line="523" column="20" />
+      <Breakpoint file="C:\Users\Torso\Documents\Development\gateway\Unity\Assets\Projects\Telexistence\Scripts\CameraController\RenderMesh\ThetaRealtimeEquirectanguler\ThetaEquirectangularImageGenerator.cs" line="29" column="40" />
+      <Breakpoint file="C:\Users\Torso\Documents\Development\gateway\Unity\Assets\Projects\GazeAwareTelexistence\Scripts\Components\MediaPresenceLayerComponent.cs" line="37" column="1" />
+      <Breakpoint file="C:\Users\Torso\Documents\Development\gateway\Unity\Assets\Projects\GazeAwareTelexistence\Scripts\Demos\GameCameraRotator.cs" line="47" column="25" />
+      <Breakpoint file="C:\Users\Torso\Documents\Development\gateway\Unity\Assets\Libraries\GStreamerUnity\Scripts\GstMultipleNetworkAudioPlayer.cs" line="47" column="30" />
+      <Breakpoint file="C:\Users\Torso\Documents\Development\gateway\Unity\Assets\Projects\Asics\Scripts\FeatureTracker.cs" line="159" column="43" />
+      <Breakpoint file="C:\Users\Torso\Documents\Development\gateway\Unity\Assets\Projects\Telexistence\Scripts\CameraSource\LocalWebcameraSource.cs" line="29" column="44" />
+      <Breakpoint file="C:\Users\Torso\Documents\Development\gateway\Unity\Assets\Projects\Telexistence\Scripts\CameraSource\LocalWebcameraSource.cs" line="61" column="54" />
+      <Breakpoint file="C:\Users\Torso\Documents\Development\gateway\Unity\Assets\Libraries\OptiTrack\OptiTrackStream.cs" line="129" column="29" />
+      <Breakpoint file="C:\Users\Torso\Documents\Development\gateway\Unity\Assets\Projects\Telexistence\Scripts\RobotControl\RTPRobotCommunicator.cs" line="134" column="14" />
+      <Breakpoint file="C:\Users\Torso\Documents\Development\gateway\Unity\Assets\Projects\Shared\Scripts\Core\PxKitPostprocess.cs" line="64" column="13" />
+      <Breakpoint file="C:\Users\Torso\Documents\Development\gateway\Unity\Assets\Projects\Shared\Scripts\Editor\PxKitPostprocess.cs" line="65" column="11" />
+      <Breakpoint file="C:\Users\Torso\Documents\Development\gateway\Unity\Assets\Projects\Shared\Scripts\Utilities\NetValueObject.cs" line="265" column="13" />
+    </BreakpointStore>
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>

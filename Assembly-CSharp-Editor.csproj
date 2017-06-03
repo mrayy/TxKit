@@ -1,0 +1,478 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.20506</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <RootNamespace></RootNamespace>
+    <ProjectGuid>{90B9081A-A441-DE26-B8E0-3E885BEFC598}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <AssemblyName>Assembly-CSharp-Editor</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <BaseDirectory>Assets</BaseDirectory>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Temp\bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_5_1;UNITY_5_5;UNITY_5;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_DUCK_TYPING;ENABLE_GENERICS;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_SPRITERENDERER_FLIPPING;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_RAKNET;ENABLE_UNET;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_HUB;ENABLE_CLOUD_PROJECT_ID;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_METRICS;ENABLE_EDITOR_METRICS_CACHING;INCLUDE_DYNAMIC_GI;INCLUDE_GI;PLATFORM_SUPPORTS_MONO;RENDER_SOFTWARE_CURSOR;INCLUDE_PUBNUB;ENABLE_PLAYMODE_TESTS_RUNNER;ENABLE_SCRIPTING_NEW_CSHARP_COMPILER;UNITY_STANDALONE_WIN;UNITY_STANDALONE;ENABLE_SUBSTANCE;ENABLE_RUNTIME_GI;ENABLE_MOVIES;ENABLE_NETWORK;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_UNITYWEBREQUEST;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_EVENT_QUEUE;ENABLE_CLUSTERINPUT;ENABLE_VIDEO;ENABLE_VR;ENABLE_WEBSOCKET_HOST;ENABLE_MONO;ENABLE_PROFILER;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;UNITY_TEAM_LICENSE;CROSS_PLATFORM_INPUT</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <NoWarn>0169</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>Temp\bin\Release\</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <NoWarn>0169</NoWarn>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.XML" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="UnityEngine">
+      <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor">
+      <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEditor.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+     <Compile Include="Assets\Editor\CrossPlatformInput\CrossPlatformInputInitialize.cs" />
+     <Compile Include="Assets\Libraries\CoherentUI\Editor\CoherentUI\AndroidPostProcessor.cs" />
+     <Compile Include="Assets\Libraries\CoherentUI\Editor\CoherentUI\CoherentPostProcessor.cs" />
+     <Compile Include="Assets\Libraries\CoherentUI\Editor\CoherentUI\CoherentSystemEditor.cs" />
+     <Compile Include="Assets\Libraries\CoherentUI\Editor\CoherentUI\CoherentUIInstaller.cs" />
+     <Compile Include="Assets\Libraries\CoherentUI\Editor\CoherentUI\CoherentUILiveGameViewEditor.cs" />
+     <Compile Include="Assets\Libraries\CoherentUI\Editor\CoherentUI\CoherentViewEditor.cs" />
+     <Compile Include="Assets\Libraries\CoherentUI\Editor\CoherentUI\IOSPostProcessor.cs" />
+     <Compile Include="Assets\Libraries\CoherentUI\Editor\CoherentUI\MobileSurfaceViewEditor.cs" />
+     <Compile Include="Assets\Libraries\JSON\Editor\JSONChecker.cs" />
+     <Compile Include="Assets\Libraries\LeapMotion\Editor\HandControllerEditor.cs" />
+     <Compile Include="Assets\Libraries\LeapMotion\Editor\LeapImageRetrieverEditor.cs" />
+     <Compile Include="Assets\Libraries\NGUI\Examples\Scripts\InventorySystem\Editor\InvDatabaseInspector.cs" />
+     <Compile Include="Assets\Libraries\NGUI\Examples\Scripts\InventorySystem\Editor\InvFindItem.cs" />
+     <Compile Include="Assets\Libraries\NGUI\Scripts\Editor\ActiveAnimationEditor.cs" />
+     <Compile Include="Assets\Libraries\NGUI\Scripts\Editor\BMFontReader.cs" />
+     <Compile Include="Assets\Libraries\NGUI\Scripts\Editor\ComponentSelector.cs" />
+     <Compile Include="Assets\Libraries\NGUI\Scripts\Editor\EventDelegateDrawer.cs" />
+     <Compile Include="Assets\Libraries\NGUI\Scripts\Editor\EventDelegateEditor.cs" />
+     <Compile Include="Assets\Libraries\NGUI\Scripts\Editor\FreeType.cs" />
+     <Compile Include="Assets\Libraries\NGUI\Scripts\Editor\NGUIContextMenu.cs" />
+     <Compile Include="Assets\Libraries\NGUI\Scripts\Editor\NGUIEditorExtensions.cs" />
+     <Compile Include="Assets\Libraries\NGUI\Scripts\Editor\NGUIEditorTools.cs" />
+     <Compile Include="Assets\Libraries\NGUI\Scripts\Editor\NGUIHandles.cs" />
+     <Compile Include="Assets\Libraries\NGUI\Scripts\Editor\NGUIHelp.cs" />
+     <Compile Include="Assets\Libraries\NGUI\Scripts\Editor\NGUIJson.cs" />
+     <Compile Include="Assets\Libraries\NGUI\Scripts\Editor\NGUIMenu.cs" />
+     <Compile Include="Assets\Libraries\NGUI\Scripts\Editor\NGUISelectionTools.cs" />
+     <Compile Include="Assets\Libraries\NGUI\Scripts\Editor\NGUISettings.cs" />
+     <Compile Include="Assets\Libraries\NGUI\Scripts\Editor\NGUISnap.cs" />
+     <Compile Include="Assets\Libraries\NGUI\Scripts\Editor\NGUITransformInspector.cs" />
+     <Compile Include="Assets\Libraries\NGUI\Scripts\Editor\PropertyBindingEditor.cs" />
+     <Compile Include="Assets\Libraries\NGUI\Scripts\Editor\PropertyReferenceDrawer.cs" />
+     <Compile Include="Assets\Libraries\NGUI\Scripts\Editor\SpriteSelector.cs" />
+     <Compile Include="Assets\Libraries\NGUI\Scripts\Editor\TweenAlphaEditor.cs" />
+     <Compile Include="Assets\Libraries\NGUI\Scripts\Editor\TweenColorEditor.cs" />
+     <Compile Include="Assets\Libraries\NGUI\Scripts\Editor\TweenFOVEditor.cs" />
+     <Compile Include="Assets\Libraries\NGUI\Scripts\Editor\TweenHeightEditor.cs" />
+     <Compile Include="Assets\Libraries\NGUI\Scripts\Editor\TweenOrthoSizeEditor.cs" />
+     <Compile Include="Assets\Libraries\NGUI\Scripts\Editor\TweenPositionEditor.cs" />
+     <Compile Include="Assets\Libraries\NGUI\Scripts\Editor\TweenRotationEditor.cs" />
+     <Compile Include="Assets\Libraries\NGUI\Scripts\Editor\TweenScaleEditor.cs" />
+     <Compile Include="Assets\Libraries\NGUI\Scripts\Editor\TweenTransformEditor.cs" />
+     <Compile Include="Assets\Libraries\NGUI\Scripts\Editor\TweenVolumeEditor.cs" />
+     <Compile Include="Assets\Libraries\NGUI\Scripts\Editor\TweenWidthEditor.cs" />
+     <Compile Include="Assets\Libraries\NGUI\Scripts\Editor\TypewriterEffectEditor.cs" />
+     <Compile Include="Assets\Libraries\NGUI\Scripts\Editor\UI2DSpriteEditor.cs" />
+     <Compile Include="Assets\Libraries\NGUI\Scripts\Editor\UIAnchorEditor.cs" />
+     <Compile Include="Assets\Libraries\NGUI\Scripts\Editor\UIAtlasInspector.cs" />
+     <Compile Include="Assets\Libraries\NGUI\Scripts\Editor\UIAtlasMaker.cs" />
+     <Compile Include="Assets\Libraries\NGUI\Scripts\Editor\UIBasicSpriteEditor.cs" />
+     <Compile Include="Assets\Libraries\NGUI\Scripts\Editor\UIButtonColorEditor.cs" />
+     <Compile Include="Assets\Libraries\NGUI\Scripts\Editor\UIButtonEditor.cs" />
+     <Compile Include="Assets\Libraries\NGUI\Scripts\Editor\UIButtonKeysEditor.cs" />
+     <Compile Include="Assets\Libraries\NGUI\Scripts\Editor\UIButtonMessageEditor.cs" />
+     <Compile Include="Assets\Libraries\NGUI\Scripts\Editor\UICameraEditor.cs" />
+     <Compile Include="Assets\Libraries\NGUI\Scripts\Editor\UICameraTool.cs" />
+     <Compile Include="Assets\Libraries\NGUI\Scripts\Editor\UIColorPickerEditor.cs" />
+     <Compile Include="Assets\Libraries\NGUI\Scripts\Editor\UICreateNewUIWizard.cs" />
+     <Compile Include="Assets\Libraries\NGUI\Scripts\Editor\UICreateWidgetWizard.cs" />
+     <Compile Include="Assets\Libraries\NGUI\Scripts\Editor\UIDragObjectEditor.cs" />
+     <Compile Include="Assets\Libraries\NGUI\Scripts\Editor\UIDrawCallInspector.cs" />
+     <Compile Include="Assets\Libraries\NGUI\Scripts\Editor\UIDrawCallViewer.cs" />
+     <Compile Include="Assets\Libraries\NGUI\Scripts\Editor\UIEventTriggerEditor.cs" />
+     <Compile Include="Assets\Libraries\NGUI\Scripts\Editor\UIFontInspector.cs" />
+     <Compile Include="Assets\Libraries\NGUI\Scripts\Editor\UIFontMaker.cs" />
+     <Compile Include="Assets\Libraries\NGUI\Scripts\Editor\UIForwardEventsEditor.cs" />
+     <Compile Include="Assets\Libraries\NGUI\Scripts\Editor\UIGridEditor.cs" />
+     <Compile Include="Assets\Libraries\NGUI\Scripts\Editor\UIImageButtonInspector.cs" />
+     <Compile Include="Assets\Libraries\NGUI\Scripts\Editor\UIInputEditor.cs" />
+     <Compile Include="Assets\Libraries\NGUI\Scripts\Editor\UIKeyNavigationEditor.cs" />
+     <Compile Include="Assets\Libraries\NGUI\Scripts\Editor\UILabelInspector.cs" />
+     <Compile Include="Assets\Libraries\NGUI\Scripts\Editor\UILocalizeEditor.cs" />
+     <Compile Include="Assets\Libraries\NGUI\Scripts\Editor\UIPanelInspector.cs" />
+     <Compile Include="Assets\Libraries\NGUI\Scripts\Editor\UIPanelTool.cs" />
+     <Compile Include="Assets\Libraries\NGUI\Scripts\Editor\UIPlayAnimationEditor.cs" />
+     <Compile Include="Assets\Libraries\NGUI\Scripts\Editor\UIPlayTweenEditor.cs" />
+     <Compile Include="Assets\Libraries\NGUI\Scripts\Editor\UIPopupListInspector.cs" />
+     <Compile Include="Assets\Libraries\NGUI\Scripts\Editor\UIPrefabTool.cs" />
+     <Compile Include="Assets\Libraries\NGUI\Scripts\Editor\UIProgressBarEditor.cs" />
+     <Compile Include="Assets\Libraries\NGUI\Scripts\Editor\UIRectEditor.cs" />
+     <Compile Include="Assets\Libraries\NGUI\Scripts\Editor\UIRootEditor.cs" />
+     <Compile Include="Assets\Libraries\NGUI\Scripts\Editor\UIScrollBarEditor.cs" />
+     <Compile Include="Assets\Libraries\NGUI\Scripts\Editor\UIScrollViewEditor.cs" />
+     <Compile Include="Assets\Libraries\NGUI\Scripts\Editor\UISliderEditor.cs" />
+     <Compile Include="Assets\Libraries\NGUI\Scripts\Editor\UISnapshotPointEditor.cs" />
+     <Compile Include="Assets\Libraries\NGUI\Scripts\Editor\UISpriteAnimationInspector.cs" />
+     <Compile Include="Assets\Libraries\NGUI\Scripts\Editor\UISpriteInspector.cs" />
+     <Compile Include="Assets\Libraries\NGUI\Scripts\Editor\UIStretchEditor.cs" />
+     <Compile Include="Assets\Libraries\NGUI\Scripts\Editor\UITableEditor.cs" />
+     <Compile Include="Assets\Libraries\NGUI\Scripts\Editor\UITextureInspector.cs" />
+     <Compile Include="Assets\Libraries\NGUI\Scripts\Editor\UITexturePacker.cs" />
+     <Compile Include="Assets\Libraries\NGUI\Scripts\Editor\UIToggleInspector.cs" />
+     <Compile Include="Assets\Libraries\NGUI\Scripts\Editor\UITweenerEditor.cs" />
+     <Compile Include="Assets\Libraries\NGUI\Scripts\Editor\UIWidgetContainerEditor.cs" />
+     <Compile Include="Assets\Libraries\NGUI\Scripts\Editor\UIWidgetInspector.cs" />
+     <Compile Include="Assets\Libraries\NGUI\Scripts\Editor\UIWrapContentEditor.cs" />
+     <Compile Include="Assets\Libraries\OVR\Editor\OVRBuild.cs" />
+     <Compile Include="Assets\Libraries\OVR\Editor\OVRMoonlightLoader.cs" />
+     <Compile Include="Assets\Libraries\OVR\Editor\OVRScreenshotWizard.cs" />
+     <Compile Include="Assets\Libraries\Ovrvision\Editor\OvrvisionEditor.cs" />
+     <Compile Include="Assets\Libraries\Ovrvision\Editor\OvrvisionTools.cs" />
+     <Compile Include="Assets\Libraries\Pupil\Editor\CustomPupilGazeTrackerInspector.cs" />
+     <Compile Include="Assets\Libraries\Standard Assets\Editor\ImageEffects\AntialiasingEditor.cs" />
+     <Compile Include="Assets\Libraries\Standard Assets\Editor\ImageEffects\BloomAndFlaresEditor.cs" />
+     <Compile Include="Assets\Libraries\Standard Assets\Editor\ImageEffects\BloomEditor.cs" />
+     <Compile Include="Assets\Libraries\Standard Assets\Editor\ImageEffects\CameraMotionBlurEditor.cs" />
+     <Compile Include="Assets\Libraries\Standard Assets\Editor\ImageEffects\ColorCorrectionCurvesEditor.cs" />
+     <Compile Include="Assets\Libraries\Standard Assets\Editor\ImageEffects\ColorCorrectionLookupEditor.cs" />
+     <Compile Include="Assets\Libraries\Standard Assets\Editor\ImageEffects\CreaseShadingEditor.cs" />
+     <Compile Include="Assets\Libraries\Standard Assets\Editor\ImageEffects\DepthOfFieldDeprecatedEditor.cs" />
+     <Compile Include="Assets\Libraries\Standard Assets\Editor\ImageEffects\DepthOfFieldEditor.cs" />
+     <Compile Include="Assets\Libraries\Standard Assets\Editor\ImageEffects\EdgeDetectionEditor.cs" />
+     <Compile Include="Assets\Libraries\Standard Assets\Editor\ImageEffects\NoiseAndGrainEditor.cs" />
+     <Compile Include="Assets\Libraries\Standard Assets\Editor\ImageEffects\SunShaftsEditor.cs" />
+     <Compile Include="Assets\Libraries\Standard Assets\Editor\ImageEffects\TonemappingEditor.cs" />
+     <Compile Include="Assets\Libraries\Standard Assets\Editor\ImageEffects\VignetteAndChromaticAberrationEditor.cs" />
+     <Compile Include="Assets\Libraries\UnityOSC\Editor\OSCHelper.cs" />
+     <Compile Include="Assets\Projects\Shared\Scripts\Editor\PxKitPostprocess.cs" />
+     <None Include="Assets\Projects\Telexistence\Resources\Localization.txt" />
+     <None Include="Assets\Libraries\NGUI\Examples\Shaders\Unlit - Depth Cutout.shader" />
+     <None Include="Assets\Libraries\Standard Assets\Effects\GlassRefraction\Shaders\GlassStainedBumpDistort.shader" />
+     <None Include="Assets\Libraries\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\BlendOneOne.shader" />
+     <None Include="Assets\Libraries\NGUI\ReadMe - 3.9.0.txt" />
+     <None Include="Assets\Libraries\NGUI\Resources\Shaders\Unlit - Transparent Masked 1.shader" />
+     <None Include="Assets\Libraries\Standard Assets\Effects\ImageEffects\Shaders\NoiseEffectShaderRGB.shader" />
+     <None Include="Assets\Libraries\Ovrvision\Resources\Shaders\ovChromaticMask.shader" />
+     <None Include="Assets\Plugins\donotdelete.txt" />
+     <None Include="Assets\Libraries\LeapMotion\Materials\Sources\Shaders\Toony-Basic.shader" />
+     <None Include="Assets\Libraries\NGUI\Resources\Shaders\Unlit - Text 2.shader" />
+     <None Include="Assets\Libraries\Standard Assets\Effects\ImageEffects\Shaders\_DepthOfField\SeparableWeightedBlurDof34.shader" />
+     <None Include="Assets\Materials\Silhouetted Diffuse.shader" />
+     <None Include="Assets\Libraries\NGUI\Resources\Shaders\Unlit - Transparent Masked 2.shader" />
+     <None Include="Assets\Libraries\NGUI\Examples\Models\Orc\Orc Skin.shader" />
+     <None Include="Assets\Libraries\NGUI\Examples\Atlases\Wooden\Arimo20.txt" />
+     <None Include="Assets\Libraries\CoherentUI\Shaders\CoherentUI\DiffuseIgnoreZ.shader" />
+     <None Include="Assets\Libraries\Standard Assets\Effects\ImageEffects\Shaders\ShowAlphaChannel.shader" />
+     <None Include="Assets\Libraries\NGUI\Examples\Atlases\Wooden\Arimo14.txt" />
+     <None Include="Assets\Libraries\LeapMotion\Resources\LeapCG.cginc" />
+     <None Include="Assets\Resources\LineRenderer.shader" />
+     <None Include="Assets\Libraries\JSON\readme.txt" />
+     <None Include="Assets\Resources\Blitter.shader" />
+     <None Include="Assets\Libraries\Standard Assets\Effects\ImageEffects\Shaders\SunShaftsComposite.shader" />
+     <None Include="Assets\Libraries\NGUI\Resources\Shaders\Unlit - Text 1.shader" />
+     <None Include="Assets\Libraries\NGUI\Resources\Shaders\Unlit - Premultiplied Colored (TextureClip).shader" />
+     <None Include="Assets\Libraries\Standard Assets\Effects\ImageEffects\Shaders\ColorCorrectionCurves.shader" />
+     <None Include="Assets\Libraries\NGUI\Resources\Shaders\Unlit - Transparent Colored (Packed) (TextureClip).shader" />
+     <None Include="Assets\Libraries\Standard Assets\Effects\ImageEffects\Shaders\ScreenSpaceAmbientObscurance.shader" />
+     <None Include="Assets\Libraries\NGUI\Resources\Shaders\Unlit - Transparent Colored RTT.shader" />
+     <None Include="Assets\Libraries\NGUI\Resources\Shaders\Unlit - Transparent Colored 2.shader" />
+     <None Include="Assets\Resources\GazeBlit_Circle.shader" />
+     <None Include="Assets\Libraries\Standard Assets\Effects\ImageEffects\Shaders\_Antialiasing\NFAA.shader" />
+     <None Include="Assets\Libraries\NGUI\Examples\Shaders\Unlit - Masked Colored.shader" />
+     <None Include="Assets\Plugins\x86_64\donotdelete.txt" />
+     <None Include="Assets\Libraries\Standard Assets\Effects\ImageEffects\Shaders\ScreenSpaceRaytrace.cginc" />
+     <None Include="Assets\Libraries\NGUI\Resources\Shaders\Unlit - Premultiplied Colored 3.shader" />
+     <None Include="Assets\Libraries\Standard Assets\Effects\ImageEffects\Shaders\_DepthOfField\TiltShiftHdrLensBlur.shader" />
+     <None Include="Assets\Libraries\NGUI\Examples\Atlases\Wooden\Arimo18.txt" />
+     <None Include="Assets\Libraries\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\VignetteShader.shader" />
+     <None Include="Assets\Libraries\Standard Assets\Effects\ImageEffects\Shaders\_DepthOfField\DepthOfFieldScatter.shader" />
+     <None Include="Assets\Libraries\Standard Assets\Effects\TessellationShaders\Shaders\BumpedSpecularSmooth.shader" />
+     <None Include="Assets\Libraries\Standard Assets\Effects\Projectors\Guidelines.txt" />
+     <None Include="Assets\log.txt" />
+     <None Include="Assets\Libraries\Standard Assets\Effects\ImageEffects\Shaders\MotionBlur.shader" />
+     <None Include="Assets\Libraries\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\MobileBloom.shader" />
+     <None Include="Assets\Libraries\Standard Assets\Effects\ImageEffects\Shaders\Contrast Stretch\MinMaxReduction.shader" />
+     <None Include="Assets\Libraries\Standard Assets\Effects\ImageEffects\Shaders\_Antialiasing\SSAA.shader" />
+     <None Include="Assets\Resources\ThetaRealtimeEquirectangular_ver1.shader" />
+     <None Include="Assets\Libraries\NGUI\Resources\Shaders\Unlit - Transparent Colored (TextureClip).shader" />
+     <None Include="Assets\Libraries\Standard Assets\Effects\ImageEffects\Shaders\RadialBlur.shader" />
+     <None Include="Assets\Resources\WebCamShader.shader" />
+     <None Include="Assets\Libraries\VRGUI\Shaders\VRGUITransparentOverlayShader.shader" />
+     <None Include="Assets\Libraries\NGUI\Examples\Atlases\SciFi\SciFi Font - Header.txt" />
+     <None Include="Assets\Libraries\Standard Assets\Effects\ImageEffects\Shaders\_DepthOfField\DepthOfFieldDX11.shader" />
+     <None Include="Assets\Libraries\OVR\Shaders\OVRColorRampAlpha.shader" />
+     <None Include="Assets\Libraries\Standard Assets\Effects\ImageEffects\Shaders\ContrastComposite.shader" />
+     <None Include="Assets\Libraries\Standard Assets\Effects\ImageEffects\Shaders\_Antialiasing\FXAAPreset3.shader" />
+     <None Include="Assets\Libraries\LeapMotion\Resources\ImageHandHighlight.shader" />
+     <None Include="Assets\Libraries\Standard Assets\Effects\ImageEffects\Shaders\FisheyeShader.shader" />
+     <None Include="Assets\Resources\GazeBasedBlend.shader" />
+     <None Include="Assets\Materials\PointCloudRenderer.shader" />
+     <None Include="Assets\Resources\DistortionCorrection.shader" />
+     <None Include="Assets\Resources\ColorCorrection.shader" />
+     <None Include="Assets\Plugins\x86_64\ovrvisionpro_conf.xml" />
+     <None Include="Assets\Libraries\Standard Assets\Effects\ImageEffects\Shaders\Contrast Stretch\Apply.shader" />
+     <None Include="Assets\Libraries\Standard Assets\Effects\ImageEffects\Shaders\frag_ao.cginc" />
+     <None Include="Assets\Resources\UnlitTexture.shader" />
+     <None Include="Assets\Libraries\NGUI\Resources\Shaders\Unlit - Transparent Masked 3.shader" />
+     <None Include="Assets\Libraries\Ovrvision\Resources\Shaders\ovTexture.shader" />
+     <None Include="Assets\Libraries\NGUI\Resources\Shaders\Unlit - Transparent Colored 1.shader" />
+     <None Include="Assets\Libraries\LeapMotion\Shaders\RimShading.shader" />
+     <None Include="Assets\Libraries\NGUI\Examples\Atlases\Fantasy\Fantasy Font - Normal.txt" />
+     <None Include="Assets\Libraries\NGUI\Resources\Shaders\Unlit - Transparent Colored 3.shader" />
+     <None Include="Assets\Libraries\NGUI\Examples\Atlases\Refractive\Refractive Font - Normal.txt" />
+     <None Include="Assets\Libraries\NGUI\Resources\Shaders\Unlit - Premultiplied Colored 2.shader" />
+     <None Include="Assets\Libraries\LeapMotion\Materials\Sources\Shaders\Toony-BasicOutline.shader" />
+     <None Include="Assets\Libraries\OVR\Shaders\Unlit Crosshair.shader" />
+     <None Include="Assets\Libraries\Standard Assets\Effects\ImageEffects\Shaders\_DepthOfField\DepthOfField34.shader" />
+     <None Include="Assets\Libraries\LeapMotion\Resources\ThresholdOverlay.shader" />
+     <None Include="Assets\Libraries\OVR\Resources\Unlit Transparent Color.shader" />
+     <None Include="Assets\Libraries\NGUI\Resources\Shaders\Unlit - Text 3.shader" />
+     <None Include="Assets\Resources\SimpleGrabPassBlur.shader" />
+     <None Include="Assets\Data\RobotsMap.xml" />
+     <None Include="Assets\Libraries\NGUI\Resources\Shaders\Unlit - Transparent Packed 2.shader" />
+     <None Include="Assets\Plugins\x86_64\Tobii.EyeX.Client.Net20.xml" />
+     <None Include="Assets\Libraries\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\MobileBlur.shader" />
+     <None Include="Assets\Libraries\Standard Assets\Effects\ImageEffects\Shaders\SSAOShader.shader" />
+     <None Include="Assets\Libraries\Standard Assets\Effects\ImageEffects\Shaders\ConvertDepth.shader" />
+     <None Include="Assets\Libraries\Standard Assets\Effects\ImageEffects\Shaders\ColorCorrectionCurvesSimple.shader" />
+     <None Include="Assets\Libraries\Standard Assets\Effects\ImageEffects\Shaders\NoiseEffectShaderYUV.shader" />
+     <None Include="Assets\Libraries\LeapMotion\Resources\PassthroughForeground.shader" />
+     <None Include="Assets\Resources\ThetaRealtimeEquirectangular_ver2.shader" />
+     <None Include="Assets\Libraries\Standard Assets\Effects\ImageEffects\Shaders\CreaseApply.shader" />
+     <None Include="Assets\Libraries\NGUI\Resources\Shaders\Unlit - Transparent Packed 1.shader" />
+     <None Include="Assets\Libraries\CoherentUI\Shaders\CoherentUI\TransparentDiffuseIgnoreZ.shader" />
+     <None Include="Assets\Libraries\NGUI\Resources\Shaders\Unlit - Premultiplied Colored 1.shader" />
+     <None Include="Assets\Libraries\Standard Assets\Effects\ImageEffects\Shaders\ChromaticAberrationShader.shader" />
+     <None Include="Assets\Libraries\NGUI\Resources\Shaders\Unlit - Premultiplied Colored.shader" />
+     <None Include="Assets\Projects\Shared\Resources\Outlined-Silhouette Only.shader" />
+     <None Include="Assets\Libraries\Standard Assets\Effects\ImageEffects\Shaders\GlobalFog.shader" />
+     <None Include="Assets\Libraries\LeapMotion\Materials\Sources\Shaders\Toony-LightedOutline.shader" />
+     <None Include="Assets\Libraries\Standard Assets\Effects\ImageEffects\Shaders\Contrast Stretch\Luminance.shader" />
+     <None Include="Assets\Libraries\LeapMotion\Materials\Sources\Shaders\Toony-Lighted.shader" />
+     <None Include="Assets\Libraries\LeapMotion\Resources\PassthroughBackground.shader" />
+     <None Include="Assets\Libraries\NGUI\Resources\Shaders\Unlit - Transparent Colored.shader" />
+     <None Include="Assets\Libraries\Ovrvision\Resources\Shaders\ovHandMaskRev.shader" />
+     <None Include="Assets\Libraries\Standard Assets\Effects\ImageEffects\Shaders\ColorCorrectionSelective.shader" />
+     <None Include="Assets\Libraries\Standard Assets\Effects\ImageEffects\Shaders\_DepthOfField\Bokeh34.shader" />
+     <None Include="Assets\license.txt" />
+     <None Include="Assets\Libraries\Standard Assets\Effects\ImageEffects\Shaders\CameraMotionBlurDX11.shader" />
+     <None Include="Assets\Libraries\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\SeparableBlurPlus.shader" />
+     <None Include="Assets\Libraries\LeapMotion\Widgets\Shaders\SelfIllumAlpha.shader" />
+     <None Include="Assets\Libraries\Standard Assets\Effects\Projectors\Shaders\ProjectorLight.shader" />
+     <None Include="Assets\Libraries\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\MultiPassHollywoodFlares.shader" />
+     <None Include="Assets\Libraries\NGUI\Resources\Shaders\Unlit - Text.shader" />
+     <None Include="Assets\Resources\FlipCoord.shader" />
+     <None Include="Assets\Libraries\Standard Assets\Effects\ImageEffects\Shaders\BlurEffectConeTaps.shader" />
+     <None Include="Assets\Libraries\Standard Assets\Effects\ImageEffects\Shaders\CameraMotionBlur.shader" />
+     <None Include="Assets\Resources\ImageBlur.shader" />
+     <None Include="Assets\Libraries\Standard Assets\Effects\ImageEffects\Shaders\_Antialiasing\DLAA.shader" />
+     <None Include="Assets\Libraries\NGUI\Resources\Shaders\Unlit - Transparent Packed.shader" />
+     <None Include="Assets\Projects\Shared\Resources\Silhouette Shader.shader" />
+     <None Include="Assets\Libraries\Standard Assets\Effects\ImageEffects\Shaders\NoiseAndGrainDX11.shader" />
+     <None Include="Assets\Libraries\NGUI\Resources\Shaders\Unlit - Transparent Packed 3.shader" />
+     <None Include="Assets\Resources\LeapHandsShader.shader" />
+     <None Include="Assets\Libraries\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\BrightPassFilter2.shader" />
+     <None Include="Assets\Libraries\Ovrvision\Resources\Shaders\ovShadowShader.shader" />
+     <None Include="Assets\Libraries\Standard Assets\Effects\ImageEffects\Shaders\_DepthOfField\SeparableBlur.shader" />
+     <None Include="Assets\Libraries\Standard Assets\Effects\ImageEffects\Shaders\MotionBlurClear.shader" />
+     <None Include="Assets\Resources\I420ToRGB.shader" />
+     <None Include="Assets\Libraries\Standard Assets\Effects\ImageEffects\Shaders\ColorCorrectionEffect.shader" />
+     <None Include="Assets\Libraries\Standard Assets\Effects\ImageEffects\Shaders\GrayscaleEffect.shader" />
+     <None Include="Assets\Libraries\Standard Assets\Effects\ImageEffects\Shaders\SepiaToneEffect.shader" />
+     <None Include="Assets\Libraries\Standard Assets\Effects\ImageEffects\Shaders\TwirlEffect.shader" />
+     <None Include="Assets\Libraries\Standard Assets\Effects\ImageEffects\Shaders\VortexEffect.shader" />
+     <None Include="Assets\Libraries\Standard Assets\Effects\ImageEffects\Shaders\Contrast Stretch\Adaptation.shader" />
+     <None Include="Assets\Data\LayerParams.xml" />
+     <None Include="Assets\Libraries\Standard Assets\Effects\ImageEffects\Shaders\NoiseAndGrain.shader" />
+     <None Include="Assets\Resources\GazeBlit_Rect.shader" />
+     <None Include="Assets\Projects\Telexistence\Prefabs\SphereRenderer.shader" />
+     <None Include="Assets\Libraries\Standard Assets\Effects\Projectors\Shaders\ProjectorMultiply.shader" />
+     <None Include="Assets\Libraries\Standard Assets\Effects\ImageEffects\Shaders\VignettingShader.shader" />
+     <None Include="Assets\Libraries\Standard Assets\Effects\ImageEffects\Shaders\Tonemapper.shader" />
+     <None Include="Assets\Resources\MaskedShader.shader" />
+     <None Include="Assets\Libraries\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\BrightPassFilter.shader" />
+     <None Include="Assets\Libraries\NGUI\Examples\Shaders\Unlit - Additive Colored.shader" />
+     <None Include="Assets\Resources\LeapCG.cginc" />
+     <None Include="Assets\Libraries\Standard Assets\Effects\ImageEffects\Shaders\_Antialiasing\FXAA2.shader" />
+     <None Include="Assets\Libraries\NGUI\Resources\Shaders\Unlit - Transparent Masked.shader" />
+     <None Include="Assets\Libraries\Standard Assets\Effects\ImageEffects\Shaders\ColorCorrection3DLut.shader" />
+     <None Include="Assets\Libraries\NGUI\Examples\Atlases\Refractive\Refractive Font - Header.txt" />
+     <None Include="Assets\Libraries\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\LensFlareCreate.shader" />
+     <None Include="Assets\Libraries\NGUI\Examples\Shaders\Refractive.shader" />
+     <None Include="Assets\Libraries\Standard Assets\Effects\ImageEffects\Shaders\EdgeDetectNormals.shader" />
+     <None Include="Assets\Resources\ColorCorrection - Obayashi.shader" />
+     <None Include="Assets\Libraries\Standard Assets\Effects\ImageEffects\Shaders\PrepareSunShaftsBlur.shader" />
+     <None Include="Assets\Libraries\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\Blend.shader" />
+     <None Include="Assets\Libraries\NGUI\Resources\Shaders\Unlit - Text (TextureClip).shader" />
+     <None Include="Assets\Libraries\Standard Assets\Effects\ImageEffects\Shaders\BlendModesOverlay.shader" />
+     <None Include="Assets\Libraries\NGUI\Examples\Shaders\Unlit - Depth.shader" />
+     <None Include="Assets\Libraries\NGUI\Examples\Atlases\SciFi\SciFi Font - Normal.txt" />
+     <None Include="Assets\Libraries\Standard Assets\Effects\ImageEffects\Shaders\SimpleClear.shader" />
+     <None Include="Assets\Libraries\Standard Assets\Effects\TessellationShaders\Shaders\BumpedSpecularDisplacement.shader" />
+     <None Include="Assets\Libraries\Standard Assets\Effects\ImageEffects\Shaders\_Antialiasing\FXAA3Console.shader" />
+     <None Include="Assets\Libraries\NGUI\Examples\Models\Orc Armor\Orc Armor.shader" />
+     <None Include="Assets\Resources\GazeBasedBlend_Stream.shader" />
+     <None Include="Assets\Libraries\NGUI\Examples\Resources\Localization.txt" />
+     <None Include="Assets\Data\CameraConfigurations.xml" />
+     <None Include="Assets\Resources\TelexistenceCG.cginc" />
+     <None Include="Assets\Libraries\Standard Assets\Effects\ImageEffects\Shaders\_Antialiasing\FXAAPreset2.shader" />
+     <None Include="Assets\Libraries\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\BlurAndFlares.shader" />
+     <None Include="Assets\Libraries\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\BlendForBloom.shader" />
+ <Reference Include="UnityEditor.Advertisements">
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Advertisements/Editor/UnityEditor.Advertisements.dll</HintPath>
+ </Reference>
+ <Reference Include="nunit.framework">
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/EditorTestsRunner/Editor/nunit.framework.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.EditorTestsRunner">
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/EditorTestsRunner/Editor/UnityEditor.EditorTestsRunner.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.UI">
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.UI">
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/Editor/UnityEditor.UI.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.Networking">
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.Networking">
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Networking/Editor/UnityEditor.Networking.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.PlaymodeTestsRunner">
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/PlaymodeTestsRunner/Editor/UnityEditor.PlaymodeTestsRunner.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.PlaymodeTestsRunner">
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/PlaymodeTestsRunner/UnityEngine.PlaymodeTestsRunner.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.TreeEditor">
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/TreeEditor/Editor/UnityEditor.TreeEditor.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.Analytics">
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.Analytics">
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityAnalytics/Editor/UnityEditor.Analytics.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.HoloLens">
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityHoloLens/Editor/UnityEditor.HoloLens.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.HoloLens">
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityHoloLens/RuntimeEditor/UnityEngine.HoloLens.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.VR">
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityVR/Editor/UnityEditor.VR.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.VR">
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityVR/RuntimeEditor/UnityEngine.VR.dll</HintPath>
+ </Reference>
+ <Reference Include="CoherentUIEditor">
+ <HintPath>C:/Users/Torso/Documents/Development/gateway/TxKit/Assets/Libraries/CoherentUI/Editor/CoherentUI/CoherentUIEditor.dll</HintPath>
+ </Reference>
+ <Reference Include="CoherentUICommon">
+ <HintPath>C:/Users/Torso/Documents/Development/gateway/TxKit/Assets/Libraries/CoherentUI/Scripts/CoherentUI/Detail/CoherentUICommon.dll</HintPath>
+ </Reference>
+ <Reference Include="Emgu.CV.Contrib">
+ <HintPath>C:/Users/Torso/Documents/Development/gateway/TxKit/Assets/Libraries/EmguCV/Plugins/x86_64/Emgu.CV.Contrib.dll</HintPath>
+ </Reference>
+ <Reference Include="Emgu.CV.Cuda">
+ <HintPath>C:/Users/Torso/Documents/Development/gateway/TxKit/Assets/Libraries/EmguCV/Plugins/x86_64/Emgu.CV.Cuda.dll</HintPath>
+ </Reference>
+ <Reference Include="Emgu.CV">
+ <HintPath>C:/Users/Torso/Documents/Development/gateway/TxKit/Assets/Libraries/EmguCV/Plugins/x86_64/Emgu.CV.dll</HintPath>
+ </Reference>
+ <Reference Include="Emgu.CV.ML">
+ <HintPath>C:/Users/Torso/Documents/Development/gateway/TxKit/Assets/Libraries/EmguCV/Plugins/x86_64/Emgu.CV.ML.dll</HintPath>
+ </Reference>
+ <Reference Include="Emgu.CV.OCR">
+ <HintPath>C:/Users/Torso/Documents/Development/gateway/TxKit/Assets/Libraries/EmguCV/Plugins/x86_64/Emgu.CV.OCR.dll</HintPath>
+ </Reference>
+ <Reference Include="Emgu.CV.Shape">
+ <HintPath>C:/Users/Torso/Documents/Development/gateway/TxKit/Assets/Libraries/EmguCV/Plugins/x86_64/Emgu.CV.Shape.dll</HintPath>
+ </Reference>
+ <Reference Include="Emgu.CV.Stitching">
+ <HintPath>C:/Users/Torso/Documents/Development/gateway/TxKit/Assets/Libraries/EmguCV/Plugins/x86_64/Emgu.CV.Stitching.dll</HintPath>
+ </Reference>
+ <Reference Include="Emgu.CV.Superres">
+ <HintPath>C:/Users/Torso/Documents/Development/gateway/TxKit/Assets/Libraries/EmguCV/Plugins/x86_64/Emgu.CV.Superres.dll</HintPath>
+ </Reference>
+ <Reference Include="Emgu.CV.UI">
+ <HintPath>C:/Users/Torso/Documents/Development/gateway/TxKit/Assets/Libraries/EmguCV/Plugins/x86_64/Emgu.CV.UI.dll</HintPath>
+ </Reference>
+ <Reference Include="Emgu.CV.VideoStab">
+ <HintPath>C:/Users/Torso/Documents/Development/gateway/TxKit/Assets/Libraries/EmguCV/Plugins/x86_64/Emgu.CV.VideoStab.dll</HintPath>
+ </Reference>
+ <Reference Include="Emgu.Util">
+ <HintPath>C:/Users/Torso/Documents/Development/gateway/TxKit/Assets/Libraries/EmguCV/Plugins/x86_64/Emgu.Util.dll</HintPath>
+ </Reference>
+ <Reference Include="AsyncIO">
+ <HintPath>C:/Users/Torso/Documents/Development/gateway/TxKit/Assets/Libraries/Pupil/Plugins/x86_64/AsyncIO.dll</HintPath>
+ </Reference>
+ <Reference Include="MsgPack">
+ <HintPath>C:/Users/Torso/Documents/Development/gateway/TxKit/Assets/Libraries/Pupil/Plugins/x86_64/MsgPack.dll</HintPath>
+ </Reference>
+ <Reference Include="NetMQ">
+ <HintPath>C:/Users/Torso/Documents/Development/gateway/TxKit/Assets/Libraries/Pupil/Plugins/x86_64/NetMQ.dll</HintPath>
+ </Reference>
+ <Reference Include="CoherentUINet">
+ <HintPath>C:/Users/Torso/Documents/Development/gateway/TxKit/Assets/Plugins/CoherentUINet.dll</HintPath>
+ </Reference>
+ <Reference Include="LeapCSharp.NET3.5">
+ <HintPath>C:/Users/Torso/Documents/Development/gateway/TxKit/Assets/Plugins/LeapCSharp.NET3.5.dll</HintPath>
+ </Reference>
+ <Reference Include="System.Drawing">
+ <HintPath>C:/Users/Torso/Documents/Development/gateway/TxKit/Assets/Plugins/x86_64/System.Drawing.dll</HintPath>
+ </Reference>
+ <Reference Include="Tobii.EyeX.Client.Net20">
+ <HintPath>C:/Users/Torso/Documents/Development/gateway/TxKit/Assets/Plugins/x86_64/Tobii.EyeX.Client.Net20.dll</HintPath>
+ </Reference>
+ <Reference Include="ZedGraph">
+ <HintPath>C:/Users/Torso/Documents/Development/gateway/TxKit/Assets/Plugins/x86_64/ZedGraph.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.Graphs">
+ <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEditor.Graphs.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.WSA.Extensions">
+ <HintPath>C:/Program Files/Unity/Editor/Data/PlaybackEngines/MetroSupport/UnityEditor.WSA.Extensions.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.WindowsStandalone.Extensions">
+ <HintPath>C:/Program Files/Unity/Editor/Data/PlaybackEngines/windowsstandalonesupport/UnityEditor.WindowsStandalone.Extensions.dll</HintPath>
+ </Reference>
+ <Reference Include="Mono.Cecil">
+ <HintPath>C:/Program Files/Unity/Editor/Data/Managed/Mono.Cecil.dll</HintPath>
+ </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="Assembly-CSharp.csproj">
+      <Project>{6E131522-2CB5-F8D8-115F-11AF6ED433A7}</Project>      <Name>Assembly-CSharp</Name>    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  
+</Project>

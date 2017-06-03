@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<PresenceLayerParameters xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ImageBlurIterations>2</ImageBlurIterations>
+  <ImageBlurSize>2</ImageBlurSize>
+  <SamplingFactor>10</SamplingFactor>
+  <SamplingSmoothIteration>5</SamplingSmoothIteration>
+  <FadeSpeed>0.6</FadeSpeed>
+  <WeightSpeed>1</WeightSpeed>
+  <MinAlpha>0.4</MinAlpha>
+  <MaxAlpha>1</MaxAlpha>
+  <AlphaScaler>0.5</AlphaScaler>
+  <DebugWeights>false</DebugWeights>
+  <AudioThreshold>0.01</AudioThreshold>
+  <MinAudio>0.3</MinAudio>
+  <MaxAudio>1</MaxAudio>
+  <FaceConfig>
+    <EnableRecognizer>false</EnableRecognizer>
+    <Threshold>100</Threshold>
+    <trainingPath />
+    <cascadePath>C:\Users\Torso\Documents\Development\gateway\TxGateway\Assets</cascadePath>
+    <scaler>1.01</scaler>
+    <minNeighbors>8</minNeighbors>
+    <minSize>0.2</minSize>
+    <maxSize>0.6666667</maxSize>
+    <ExpansionRect>
+      <x>0</x>
+      <y>0</y>
+      <position>
+        <x>0</x>
+        <y>0</y>
+      </position>
+      <center>
+        <x>0</x>
+        <y>0</y>
+      </center>
+      <min>
+        <x>0</x>
+        <y>0</y>
+      </min>
+      <max>
+        <x>0</x>
+        <y>0</y>
+      </max>
+      <width>0</width>
+      <height>0</height>
+      <size>
+        <x>0</x>
+        <y>0</y>
+      </size>
+      <xMin>0</xMin>
+      <yMin>0</yMin>
+      <xMax>0</xMax>
+      <yMax>0</yMax>
+    </ExpansionRect>
+  </FaceConfig>
+</PresenceLayerParameters>

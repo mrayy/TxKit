@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 0
+    path: Assets/Projects/Layered Presence/Scenes/SceneLoader.unity
+  - enabled: 0
+    path: Assets/Projects/Layered Presence/Scenes/0- MultiRobot.unity
+  - enabled: 0
+    path: Assets/Projects/Layered Presence/Scenes/1- Soccer.unity
+  - enabled: 0
+    path: Assets/Projects/Layered Presence/Scenes/2- VR Seethrough.unity
+  - enabled: 0
+    path: Assets/Projects/Layered Presence/Scenes/3- CAD.unity
+  - enabled: 0
+    path: Assets/Projects/Layered Presence/Scenes/5- Jenga Game.unity
+  - enabled: 0
+    path: Assets/Projects/Layered Presence/Scenes/6- VR Meeting.unity
+  - enabled: 0
+    path: Assets/Projects/Layered Presence/Scenes/7- Browser.unity
+  - enabled: 0
+    path: Assets/Projects/Telexistence/Scenes/RobotConnect.unity
+  - enabled: 0
+    path: Assets/Projects/Telexistence/Scenes/TelubeeHands.unity
+  - enabled: 0
+    path: Assets/Projects/Telexistence/Scenes/LatencyTester.unity
+  - enabled: 0
+    path: Assets/Projects/Layered Presence/Scenes/SIGGRAPH Demo.unity
+  - enabled: 0
+    path: Assets/Projects/NEDO/Tests/CV1.unity
+  - enabled: 0
+    path: Assets/Projects/NEDO/Scenes/HMD_noMesh.unity
+  - enabled: 0
+    path: Assets/Projects/Layered Presence/Scenes/SIGGRAPH Demo CV1.unity
+  - enabled: 1
+    path: Assets/Projects/Telexistence/Scenes/HMD_RobotConnect.unity
+  - enabled: 0
+    path: Assets/Projects/NEDO/Scenes/GNSS_Viewer.unity
+  - enabled: 0
+    path: Assets/Projects/NEDO/Scenes/Simulator_Viewer.unity
+  - enabled: 0
+    path: Assets/Projects/NEDO/Scenes/HMD_Mesh_path.unity
+  - enabled: 0
+    path: Assets/Projects/Telexistence/Scenes/RobotConnect CV1.unity

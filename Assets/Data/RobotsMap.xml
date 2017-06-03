@@ -1,0 +1,9 @@
+<Robots>
+	<Robot Name="DESKTOP-0CAFDKQ" Type="RTP" IP="127.0.0.1"/>	
+	<Robot Name="TXKIT_TEST1" Type="RTP" IP="192.168.1.3"/>	
+	<Robot Name="TELUBEE-1" Type="RTP" IP=""/>	
+	<Robot Name="TX-DEV-NEDO1" Type="RTP" IP=""/>	
+<!--
+	<Robot Name="TXKIT_TEST1" Type="RTP" IP="192.168.1.5"/>	
+	-->
+</Robots>

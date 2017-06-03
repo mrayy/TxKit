@@ -1,0 +1,84 @@
+<CameraConfigurations>
+
+  <CameraConfiguration Name="None" FOV="90" CameraOffset="0.0" StereoOffset="0.065" LeftRotation="None" RightRotation="None"
+                       OpticalCenter="0.49375,0.69375"
+                       FocalCoeff="0.730776532887573,0.979028604558541"
+KPCoeff="-0.347813723340939,0.140736739246859,-0.00493517526804162,0.00133541153262264"/>
+  
+  <CameraConfiguration Name="None2" FOV="90" CameraOffset="0.0" StereoOffset="0.065" LeftRotation="None" RightRotation="None"
+                       OpticalCenter="0.5,0.5"
+                       FocalCoeff="1,1"
+                       KPCoeff="0,0,0,0"/>
+  <CameraConfiguration Name="NarrowRobot" FOV="90" CameraOffset="0.0" StereoOffset="0.065" LeftRotation="Flipped" RightRotation="Flipped"
+                       OpticalCenter="0.493026572178193,0.488967436943308"
+                       FocalCoeff="0.793060174587178,1.05097989703443"
+                       KPCoeff="-0.277415009574995,0.0510418624565843,0.00550804488687205,-0.000643734888971208"/>
+
+  <CameraConfiguration Name="NarrowNormal" FOV="70" CameraOffset="0.1" StereoOffset="0.065" LeftRotation="None" RightRotation="None"
+                       OpticalCenter="0.493026572178193,0.488967436943308"
+                       FocalCoeff="0.793060174587178,1.05097989703443"
+                       KPCoeff="-0.277415009574995,0.0510418624565843,0.00550804488687205,-0.000643734888971208"/>
+
+  <CameraConfiguration Name="NarrowFlip" FOV="70" CameraOffset="0.1" StereoOffset="0.065" LeftRotation="CCW" RightRotation="CW"
+                       OpticalCenter="0.493026572178193,0.488967436943308"
+                       FocalCoeff="0.793060174587178,1.05097989703443"
+                       KPCoeff="-0.277415009574995,0.0510418624565843,0.00550804488687205,-0.000643734888971208"/>
+
+  <CameraConfiguration Name="WideFlip" FOV="111" CameraOffset="0.0" StereoOffset="0.065" LeftRotation="CW" RightRotation="CW"
+                       OpticalCenter="0.479886482165589,0.525286836931708"
+                       FocalCoeff="0.647160139925957,0.867582648569864"
+                       KPCoeff="-0.486614132558686,0.192129181451772,-1.08978397148378E-06,0.00626231264224145"/>
+
+
+  <CameraConfiguration Name="Logicool_C920" FOV="95" CameraOffset="0.0" StereoOffset="0.065" LeftRotation="None" RightRotation="None"
+                       OpticalCenter="0.472676799958338,0.539457229058063"
+                       FocalCoeff="0.839550043140829,1.12405621185934"
+                       KPCoeff="0.15733777968869,-0.21179 7197526533,-0.0107914941960221,0.0138588551983456"/>
+  
+  <CameraConfiguration Name="Logicool_615" FOV="80" CameraOffset="0.0" StereoOffset="0.065" LeftRotation="Flipped" RightRotation="None"
+                       OpticalCenter="0.515362828807949,0.499571559372652"
+FocalCoeff="0.730776532887573,0.979028604558541"
+KPCoeff="-0.347813723340939,0.140736739246859,-0.00493517526804162,0.00133541153262264"
+
+/>
+
+  <CameraConfiguration Name="Logicool_615_Wide" FOV="120" CameraOffset="0.0" StereoOffset="0.065" LeftRotation="Flipped" RightRotation="None"
+                       OpticalCenter="0.502503377142644,0.552427983691382"
+FocalCoeff="0.574659175229853,0.768984359927815"
+KPCoeff="-0.240252362953286,0.071049134981506,-0.00629184426082321,0.00131720552332581"
+
+/>
+  <CameraConfiguration Name="Logicool_615_MagicaWM" FOV="100" CameraOffset="0.0" StereoOffset="0.065" LeftRotation="Flipped" RightRotation="None"
+                     OpticalCenter="0.465845177385717,0.512054743456994"
+                      FocalCoeff="0.890618097962495,1.18686967667161"
+                      KPCoeff="-0.331979234977742,0.215334802704384,-0.00436863922179431,0.00770122136572443"/>
+  
+  
+  <CameraConfiguration Name="See3cam" FOV="84.9647" CameraOffset="0.0" StereoOffset="0.065" LeftRotation="None" RightRotation="None"
+                     OpticalCenter="0.4939155,0.5298627"
+                      FocalCoeff="0.5459919,0.97142231"
+                      KPCoeff="-0.26265967,0.11121539,-0.00042497579,-0.00015385781"
+                      PixelShift="-20,12,5,5"
+                      />
+  
+  
+  <CameraConfiguration Name="See3cam2" FOV="85, 54" CameraOffset="0.0" StereoOffset="0.065" LeftRotation="None" RightRotation="None"
+                     OpticalCenter="0.50263768,0.54180121"
+                      FocalCoeff="0.54031295,0.96301448"
+                      KPCoeff="-0.26338595,0.11372736,0.00065587903,-0.00060220505"/>
+
+
+  <CameraConfiguration Name="PointGrey_wide" FOV="110,90" CameraOffset="0.0" StereoOffset="0.065" LeftRotation="None" RightRotation="None"
+                     OpticalCenter="0.51750189,0.40711483"
+                      FocalCoeff="0.36980116,0.49464542"
+                      KPCoeff="-0.012312914,0.012494777,0.0026093982,0.00034490137"
+                      PixelShift="12,-5,-12,5"
+                      />
+                      
+  <CameraConfiguration Name="PointGrey_3.5mm" FOV="74, 39.264" CameraOffset="0.0" StereoOffset="0.065" LeftRotation="Flipped" RightRotation="Flipped"
+                     OpticalCenter="0.54682654,0.54735678"
+                      FocalCoeff="0.78651047,1.4016871"
+                      KPCoeff="-0.24914826,0.15243022,-0.0011805876,-0.00070000399"
+                      PixelShift="0,0,0,0"
+                      />
+</CameraConfigurations>

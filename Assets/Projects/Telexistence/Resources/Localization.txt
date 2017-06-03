@@ -1,0 +1,6 @@
+KEY,English,Japanese
+Flag,Flag-US,Flag-JP
+Language,English,Japanese
+Sound,Sound,音
+Music,Music,音楽
+Battery,Battery,電子
