@@ -53,9 +53,9 @@ public class RTPRobotScanner:IRobotScanner {
 	{
 		try
 		{
-			_robotCommunicator.SetData ("detect", _dataCommunicator.GetPort().ToString(), true,false);
+			_robotCommunicator.SetData ("","detect", _dataCommunicator.GetPort().ToString(), true,false);
 			_robotCommunicator.BroadcastMessage (Settings.Instance.GetPortValue("CommPort",6000));
-			_robotCommunicator.RemoveData ("detect");
+			_robotCommunicator.RemoveData ("","detect");
 		}catch(Exception e) {
 		}
 	}

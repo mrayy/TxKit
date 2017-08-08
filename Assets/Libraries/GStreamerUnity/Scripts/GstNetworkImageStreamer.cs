@@ -10,9 +10,6 @@ public class GstNetworkImageStreamer:IGstStreamer {
 	
 	[DllImport(DllName, CallingConvention = CallingConvention.Cdecl)]
 	extern static private void mray_gst_netStreamerSetIP(System.IntPtr p, [MarshalAs(UnmanagedType.LPStr)]string ip, int videoPort, bool rtcp);
-	
-	[DllImport(DllName, CallingConvention = CallingConvention.Cdecl)]
-	extern static private bool mray_gst_netStreamerCreateStream(System.IntPtr p);
 
 	[DllImport(DllName, CallingConvention = CallingConvention.Cdecl)]
 	extern static private int mray_gst_netStreamerSetGrabber(System.IntPtr p,System.IntPtr g);
@@ -27,6 +24,7 @@ public class GstNetworkImageStreamer:IGstStreamer {
 
 	public GstNetworkImageStreamer()
 	{
+		GStreamerCore.Ref ();
 		m_Instance = mray_gst_createNetworkStreamer();	
 	}
 	
@@ -34,10 +32,6 @@ public class GstNetworkImageStreamer:IGstStreamer {
 	public void SetIP(string ip,int videoPort,bool rtcp)
 	{		
 		mray_gst_netStreamerSetIP (m_Instance, ip, videoPort, rtcp);
-	}
-	public bool CreateStream()
-	{		
-		return mray_gst_netStreamerCreateStream (m_Instance);
 	}
 
 	public void SetGrabber(GstUnityImageGrabber grabber)

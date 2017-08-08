@@ -6,12 +6,13 @@ using System.Xml;
 
 public class XMLDataSerializer:IDataSerializer  {
 
-	struct DataInfo
+	class DataInfo
 	{
 		public string value;
 		public bool statusData;
 	};
-	Dictionary<string,DataInfo> _values = new Dictionary<string, DataInfo> ();
+	 
+	Dictionary<string,Dictionary<string,DataInfo>> _values = new Dictionary<string, Dictionary<string,DataInfo>>();
 
 	string _outputValues="";
 	public string SerializeData()
@@ -27,10 +28,13 @@ public class XMLDataSerializer:IDataSerializer  {
 
 					foreach(var v in _values)
 					{
-						xw.WriteStartElement("Data");
-						xw.WriteAttributeString("N",v.Key);
-						xw.WriteAttributeString("V",v.Value.value);
-						xw.WriteEndElement();
+						foreach (var k in v.Value) {
+							xw.WriteStartElement ("Data");
+							xw.WriteAttributeString ("T", v.Key);
+							xw.WriteAttributeString ("N", k.Key);
+							xw.WriteAttributeString ("V", k.Value.value);
+							xw.WriteEndElement ();
+						}
 					}
 
 					xw.WriteEndElement();
@@ -47,48 +51,58 @@ public class XMLDataSerializer:IDataSerializer  {
 			if (statusValues)
 				_values.Clear ();
 			else {
-				List<string> keys=new List<string>();
-				foreach (var v in _values) {
-					if (!v.Value.statusData) {
-						keys.Add(v.Key);
+				foreach (var t in _values) {
+					List<string> keys=new List<string>();
+					foreach (var v in t.Value) {
+						if(!v.Value.statusData)
+							keys.Add (v.Key);
 					}
-				}
-				foreach(var v in keys)
-				{
-					_values.Remove(v);
+					foreach (var k in keys)
+						t.Value.Remove (k);
 				}
 			}
 		}
 	}
 
-	public  string GetData(string key)
+	public  string GetData(string target, string key)
 	{
 		string v="";
 		lock(_values)
 		{
-			if (_values.ContainsKey (key))
-				v=_values [key].value;
+			if (_values.ContainsKey (target)) {
+				if(_values [target].ContainsKey(key))
+				{
+					var r = _values [target] [key];
+					if (r != null)
+						v = r.value;
+				}
+			}
 		}
 		return v;
 	}
 
-	public  void SetData(string key, string value, bool statusData) 
+	public  void SetData(string target, string key, string value, bool statusData) 
 	{
 		DataInfo di = new DataInfo ();
 		di.statusData = statusData;
 		di.value = value;
 		lock(_values)
 		{
-			if(!_values.ContainsKey(key))
-				_values.Add(key,di);
-			else _values[key]=di;
+			if(!_values.ContainsKey(target))
+				_values.Add(target,new Dictionary<string,DataInfo>());
+			if(!_values[target].ContainsKey(key))
+				_values[target].Add(key,di);
+			else
+				_values[target][key]=di;
 		}
 	}
-	public  void RemoveData(string key) 
+	public  void RemoveData(string target, string key) 
 	{
 		lock(_values)
 		{
-			_values.Remove (key);
+			if (_values.ContainsKey (target)) {
+				_values [target].Remove(key);
+			}
 		}
 	}
 

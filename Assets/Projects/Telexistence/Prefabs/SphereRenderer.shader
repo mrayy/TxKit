@@ -1,4 +1,6 @@
-﻿// Copyright (c) 2015 Nora
+﻿// Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
+
+// Copyright (c) 2015 Nora
 // Released under the MIT license
 // http://opensource.org/licenses/mit-license.php
 Shader "Theta/Renderer"
@@ -40,7 +42,7 @@ Shader "Theta/Renderer"
 			v2f vert (appdata v)
 			{
 				v2f o;
-				o.vertex = mul(UNITY_MATRIX_MVP, v.vertex);
+				o.vertex = UnityObjectToClipPos(v.vertex);
 				o.uv = v.uv;
 				o.uv.y=1-o.uv.y;
 				return o;

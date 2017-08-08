@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class TxKitBody : MonoBehaviour,IDependencyNode {
+
+	public const string ServiceName="TxBodyServiceModule";
+
 	public RobotConnectionComponent RobotConnector;
 	public bool NullValues;
 
@@ -22,6 +25,25 @@ public class TxKitBody : MonoBehaviour,IDependencyNode {
 
 	public bool SupportBase = true;
 
+	public float[] _RobotJointValues;
+
+	public float[] RobotJointValues {
+		get {
+			return _RobotJointValues;
+		}
+	}
+
+
+	public enum Mode
+	{
+		OculusSync,
+		RobotLimits,
+		RobotSync
+	}
+
+	public Mode TrackingMode=Mode.RobotSync;
+
+
 	public  void OnDependencyStart(DependencyRoot root)
 	{
 		if (root == RobotConnector) {
@@ -29,6 +51,7 @@ public class TxKitBody : MonoBehaviour,IDependencyNode {
 			RobotConnector.OnRobotDisconnected+=OnRobotDisconnected;
 			RobotConnector.OnRobotStartUpdate+=OnRobotStartUpdate;
 			RobotConnector.OnRobotStopUpdate+=OnRobotStopUpdate;
+			RobotConnector.Connector.DataCommunicator.OnJointValues += OnJointValues;
 		}
 	}
 	// Use this for initialization
@@ -48,6 +71,8 @@ public class TxKitBody : MonoBehaviour,IDependencyNode {
 			#endif
 		case AppManager.HeadControllerType.Keyboard:
 			HeadController=new KeyboardHeadController();
+			break;
+		case AppManager.HeadControllerType.Custom:
 			break;
 		default:
 			HeadController=new OculusHeadController();
@@ -78,6 +103,14 @@ public class TxKitBody : MonoBehaviour,IDependencyNode {
 	{
 	}
 
+	void OnJointValues(float[] values)
+	{
+		_RobotJointValues = values;
+		/*
+		if (PLCDriverObject != null) {
+			PLCDriverObject.OnTorsoJointValues(values);
+		}*/
+	}
 	void OnRobotConnected(RobotInfo ifo,RobotConnector.TargetPorts ports)
 	{
 		RobotCommunicator = RobotConnector.Connector.RobotCommunicator;
@@ -93,17 +126,20 @@ public class TxKitBody : MonoBehaviour,IDependencyNode {
 	}
 	void OnRobotStopUpdate()
 	{
-		RobotCommunicator.SetData ("HeadPosition", Vector3.zero.ToExportString (), false);
-		RobotCommunicator.SetData("HeadRotation", Quaternion.identity.ToExportString(), false);
-		RobotCommunicator.SetData("Speed", Quaternion.identity.ToExportString(), false);
-		RobotCommunicator.SetData ("Rotation", "0", false);
+		RobotCommunicator.SetData (TxKitBody.ServiceName,"HeadPosition", Vector3.zero.ToExportString (), false,false);
+		RobotCommunicator.SetData(TxKitBody.ServiceName,"HeadRotation", Quaternion.identity.ToExportString(), false,false);
+		RobotCommunicator.SetData(TxKitBody.ServiceName,"Speed", Quaternion.identity.ToExportString(), false,false);
+		RobotCommunicator.SetData (TxKitBody.ServiceName,"Rotation", "0", false,false);
 	}
 
 	// Update is called once per frame
 	void FixedUpdate () {
 
 		if (RobotConnector.IsRobotConnected) {
-			
+
+			RobotCommunicator.SetData(TxKitBody.ServiceName,"query","",false,false);
+			RobotCommunicator.SetData(TxKitBody.ServiceName,"jointVals","",false,false);
+
 			if (NullValues) {
 				HeadOrientation = Quaternion.identity;
 				HeadPosition = Vector3.zero;
@@ -113,12 +149,12 @@ public class TxKitBody : MonoBehaviour,IDependencyNode {
 				HandleController ();
 			}
 			if (HeadController != null) {
-				RobotCommunicator.SetData ("HeadRotation", HeadOrientation.ToExportString (), false);
-				RobotCommunicator.SetData ("HeadPosition", HeadPosition.ToExportString (), false);
+				RobotCommunicator.SetData (TxKitBody.ServiceName,"HeadRotation", HeadOrientation.ToExportString (), false,false);
+				RobotCommunicator.SetData (TxKitBody.ServiceName,"HeadPosition", HeadPosition.ToExportString (), false,false);
 			}
 			if (BaseController != null) {
-				RobotCommunicator.SetData ("Speed", BaseSpeed.ToExportString (), false);
-				RobotCommunicator.SetData ("Rotation", BaseRotation.ToString ("f6"), false);
+				RobotCommunicator.SetData (TxKitBody.ServiceName,"Speed", BaseSpeed.ToExportString (), false,false);
+				RobotCommunicator.SetData (TxKitBody.ServiceName,"Rotation", BaseRotation.ToString ("f6"), false,false);
 			}
 		}
 	}

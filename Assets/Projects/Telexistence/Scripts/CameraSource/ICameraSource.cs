@@ -12,6 +12,8 @@ public interface ICameraSource  {
 	GstBaseTexture GetBaseTexture();
 	void Init(RobotInfo ifo);
 
+	void SetCameraConfigurations (CameraConfigurations config);
+
 	bool IsSynced();
 
 	Texture GetEyeTexture(int index);

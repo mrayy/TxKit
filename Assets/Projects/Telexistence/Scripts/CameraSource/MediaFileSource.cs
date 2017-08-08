@@ -23,6 +23,10 @@ public class MediaFileSource : ICameraSource
 	{
 		return null;
 	}
+	public void SetCameraConfigurations (CameraConfigurations config)
+	{
+	}
+
 	public void Init(RobotInfo ifo)
     {
 		Media = Resources.Load<MovieTexture> (Path.GetFileNameWithoutExtension (ifo.MediaPath));

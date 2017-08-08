@@ -132,10 +132,10 @@ public class RobotConnector:IDisposable{
 		addrStr += "," + _ports.HandsPort.ToString();
 		addrStr += "," + _ports.ClockPort.ToString();
 		addrStr += "," + _ports.Rtcp.ToString();*/
-		RobotCommunicator.SetData("Connect", addrStr,true,false);
+		RobotCommunicator.SetData("","Connect", addrStr,true,false);
 		
 		addrStr = DataCommunicator.GetPort().ToString();//_ports.CommPort.ToString();
-		RobotCommunicator.SetData("CommPort", addrStr, true,false);
+		RobotCommunicator.SetData("","CommPort", addrStr, true,false);
 		
 	}
 	public void DisconnectRobot()
@@ -148,8 +148,8 @@ public class RobotConnector:IDisposable{
 		RobotCommunicator.ConnectRobot (false);
 		string addrStr = ipAddr+","+DataCommunicator.GetPort().ToString();
 		_robotStatus.Connected = false;
-		RobotCommunicator.SetData ("shutdown", "", false,true);
-		RobotCommunicator.SetData("Disconnect", addrStr, true,true);
+		RobotCommunicator.SetData ("","shutdown", "", false,true);
+		RobotCommunicator.SetData("","Disconnect", addrStr, true,true);
 		RobotCommunicator.Update(true);//only once
 		LogSystem.Instance.Log("Disconnecting Robot",LogSystem.LogType.Info);
 		EndUpdate();
@@ -195,11 +195,11 @@ public class RobotConnector:IDisposable{
 			}
 		}*/
 	}
-	public void SendData(string name,string value,bool statusData=false,bool immediate=false)
+	public void SendData(string target,string name,string value,bool statusData=false,bool immediate=false)
 	{
 		if (RobotCommunicator==null)
 			return;
-		RobotCommunicator.SetData (name,value,statusData,immediate);
+		RobotCommunicator.SetData (target,name,value,statusData,immediate);
 	}
 
 }

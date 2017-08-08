@@ -13,6 +13,8 @@ public class MultipleNetworkCameraSource : ICameraSource {
 	OffscreenProcessor[] _Processor;
 	bool[] _needProcessing;
 
+	CameraConfigurations _config;
+
 	uint[] _videoPorts;
 
 	public bool SeparateStreams=false;
@@ -28,6 +30,13 @@ public class MultipleNetworkCameraSource : ICameraSource {
 	{
 		return m_Texture;
 	}
+	public void SetCameraConfigurations (CameraConfigurations config)
+	{
+		_config = config;
+		if (m_Texture != null)
+			m_Texture.SetConfiguration (_config);
+	}
+
 	public ulong GetGrabbedBufferID (int index)
 	{
 		if(!SeparateStreams)
@@ -59,6 +68,10 @@ public class MultipleNetworkCameraSource : ICameraSource {
 		m_Texture.ConnectToHost (ip, port,StreamsCount);
 		m_Texture.Play ();
 
+
+		if (_config != null)
+			m_Texture.SetConfiguration (_config);
+
 		m_Texture.OnFrameGrabbed+=OnFrameGrabbed;
 
 
@@ -70,7 +83,7 @@ public class MultipleNetworkCameraSource : ICameraSource {
 			if (i != StreamsCount - 1)
 				streamsVals += ",";
 		}
-		RobotConnector.Connector.SendData("VideoPorts",streamsVals,true);
+		RobotConnector.Connector.SendData(TxKitEyes.ServiceName,"VideoPorts",streamsVals,true);
 
 	}
 
@@ -117,7 +130,7 @@ public class MultipleNetworkCameraSource : ICameraSource {
 	}
 	public Texture GetEyeTexture(int e)
 	{
-		if(!SeparateStreams)
+		if(!SeparateStreams || e>=_Processor.Length)
 			e = 0;
 		
 		if (m_Texture !=null && ((int)e)<_Processor.Length && m_Texture.PlayerTexture ()!=null) {

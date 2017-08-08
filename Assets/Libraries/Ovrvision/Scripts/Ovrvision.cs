@@ -89,10 +89,10 @@ public class Ovrvision : MonoBehaviour
 			return;
 
 		// Initialize camera plane object(Left)
-		CameraLeft = this.transform.FindChild("LeftCamera").gameObject;
-		CameraRight = this.transform.FindChild("RightCamera").gameObject;
-		CameraPlaneLeft = CameraLeft.transform.FindChild("LeftImagePlane").gameObject;
-		CameraPlaneRight = CameraRight.transform.FindChild("RightImagePlane").gameObject;
+		CameraLeft = this.transform.Find("LeftCamera").gameObject;
+		CameraRight = this.transform.Find("RightCamera").gameObject;
+		CameraPlaneLeft = CameraLeft.transform.Find("LeftImagePlane").gameObject;
+		CameraPlaneRight = CameraRight.transform.Find("RightImagePlane").gameObject;
 
 		CameraLeft.transform.localPosition = Vector3.zero;
 		CameraRight.transform.localPosition = Vector3.zero;

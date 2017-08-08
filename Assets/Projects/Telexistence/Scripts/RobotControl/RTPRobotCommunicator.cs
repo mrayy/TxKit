@@ -191,30 +191,30 @@ public class RTPRobotCommunicator : IRobotCommunicator,IDisposable {
 	{
 		_userInfo.RobotConnected = c;
 		lock (_serializer) {
-			SetData ("RobotConnect", c.ToString (), true,false);
+			SetData ("all","RobotConnect", c.ToString (), true,false);
 			_SendUpdate ();
 		}
 	}
 
-	public override string GetData(string key)
+	public override string GetData(string target,string key)
 	{
-		return _serializer.GetData(key);
+		return _serializer.GetData(target,key);
 	}
 	
-	public override void SetData(string key, string value, bool statusData,bool immediate) 
+	public override void SetData(string target,string key, string value, bool statusData,bool immediate) 
 	{
 		lock(_serializer)
 		{
-			_serializer.SetData (key, value, statusData);
+			_serializer.SetData (target,key, value, statusData);
 			if(immediate)
 				_UpdateData(immediate);
 		}
 	}
-	public override void RemoveData(string key) 
+	public override void RemoveData(string target,string key) 
 	{
 		lock(_serializer)
 		{
-			_serializer.RemoveData (key);
+			_serializer.RemoveData (target,key);
 			_UpdateData (false);
 		}
 	}

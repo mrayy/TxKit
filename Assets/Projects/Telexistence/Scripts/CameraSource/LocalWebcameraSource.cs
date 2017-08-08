@@ -36,6 +36,9 @@ public class LocalWebcameraSource : ICameraSource {
 		for (int i = 0; i < WebCamTexture.devices.Length; ++i)
 			Debug.Log ("["+i.ToString()+"]: "+WebCamTexture.devices [i].name);
 	}
+	public void SetCameraConfigurations (CameraConfigurations config)
+	{
+	}
 
 	public void SetCameraIndex(List<int> indicies)
 	{

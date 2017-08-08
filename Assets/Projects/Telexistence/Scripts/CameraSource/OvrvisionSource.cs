@@ -41,6 +41,10 @@ public class OvrvisionSource : ICameraSource {
 
 	}
 
+	public void SetCameraConfigurations (CameraConfigurations config)
+	{
+	}
+
 	public OvrvisionSource()
 	{
 	}

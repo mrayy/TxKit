@@ -15,10 +15,10 @@ public abstract class IRobotCommunicator  {
 	
 	public abstract void Update(bool send);
 	
-	public abstract string GetData(string key);
+	public abstract string GetData(string target,string key);
 	
-	public abstract void SetData(string key, string value, bool statusData,bool immediate=false) ;
-	public abstract void RemoveData(string key) ;
+	public abstract void SetData(string target, string key, string value, bool statusData,bool immediate) ;
+	public abstract void RemoveData(string target,string key) ;
 	public abstract void ClearData(bool statusValues);
 
 	public abstract void SetBroadcastNext(bool set);

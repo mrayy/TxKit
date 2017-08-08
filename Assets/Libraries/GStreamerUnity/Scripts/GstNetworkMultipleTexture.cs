@@ -13,6 +13,7 @@ public class GstNetworkMultipleTexture : GstBaseTexture {
 		public abstract Texture2D[] GetTextures();
 		public abstract bool Process(GstMultipleNetworkPlayer player);
 		public abstract GstImageInfo.EPixelFormat GetFormat();
+		public abstract void SetConfigurations(string config);
 	}
 	public class OvrvisionTextureProcessor:ITextureProcessor
 	{
@@ -24,6 +25,8 @@ public class GstNetworkMultipleTexture : GstBaseTexture {
 		ProcessorThread _processorThread;
 		System.IntPtr _ptr;
 		bool _ready=false;
+
+		string _config;
 
 		class ProcessorThread:ThreadJob
 		{
@@ -56,6 +59,7 @@ public class GstNetworkMultipleTexture : GstBaseTexture {
 		public OvrvisionTextureProcessor()
 		{
 			_ovr=new COvrvisionUnity();
+			_ovr.useProcessingQuality=COvrvisionUnity.OV_CAMQT_DMS;
 			_processorThread=new ProcessorThread(this);
 			_processorThread.Start();
 		}
@@ -75,7 +79,7 @@ public class GstNetworkMultipleTexture : GstBaseTexture {
 		}
 		public override GstImageInfo.EPixelFormat GetFormat()
 		{
-			return GstImageInfo.EPixelFormat.EPixel_LUMINANCE8;
+			return GstImageInfo.EPixelFormat.EPixel_Alpha8;
 		}
 
 		void _init(Vector2 sz)
@@ -99,6 +103,9 @@ public class GstNetworkMultipleTexture : GstBaseTexture {
 				return;
 			}
 
+			if (!string.IsNullOrEmpty (_config)) {
+				_ovr.LoadCameraConfiguration (_config);
+			}
 			_ovr.useOvrvisionTrack_Calib = false;
 			_ovr.useProcessingQuality= COvrvisionUnity.OV_CAMQT_DMSRMP;
 
@@ -121,8 +128,17 @@ public class GstNetworkMultipleTexture : GstBaseTexture {
 			
 			return true;
 		}
+
+		public override void SetConfigurations(string config)
+		{
+			_config = config;
+			if (_inited) {
+				_ovr.LoadCameraConfiguration (_config);
+			}
+		}
 		public override bool Process(GstMultipleNetworkPlayer player)
 		{
+			
 			Vector2 sz = new Vector2 (player.FrameSize.x/2, player.FrameSize.y);
 			if (_inited && CheckResized(sz)) {
 				_inited = false;
@@ -146,7 +162,7 @@ public class GstNetworkMultipleTexture : GstBaseTexture {
 		}
 		void _process()
 		{
-			_ovr.UpdateImageMemory (_ptr);
+			_ovr.UpdateImageMemory (_ptr,false);
 			_ready = true;
 		}
 
@@ -196,6 +212,7 @@ public class GstNetworkMultipleTexture : GstBaseTexture {
 
 	Thread _processingThread;
 	bool _IsDone=false;
+	CameraConfigurations _config;
 
 	class FrameData
 	{
@@ -268,10 +285,22 @@ public class GstNetworkMultipleTexture : GstBaseTexture {
 			ProcessedTextures = p.GetTextures ();
 			_processor = p;
 		}
+		if (_processor != null && _config!=null)
+			_processor.SetConfigurations (_config.CamerConfigurationsStr);
 
 		_IsDone = false;
 	}
-	
+
+	public void SetConfiguration(CameraConfigurations config)
+	{
+		_config = config;
+		if (_processor != null) {
+			if (_config != null)
+				_processor.SetConfigurations (_config.CamerConfigurationsStr);
+			else
+				_processor.SetConfigurations ("");
+		}
+	}
 
 	public override void Destroy ()
 	{
@@ -372,11 +401,11 @@ public class GstNetworkMultipleTexture : GstBaseTexture {
 								else {
 									
 									lock (_player) {
-										int levels=Player.RTPGetEyegazeLevels (i);
+										int levels = Player.RTPGetEyegazeLevels (i);
 										if (levels != m_levels) {
 											m_levels = levels;
 											_frames [i].Eyegaze = new List<Vector4> (m_levels);
-											for(int l=0;l<m_levels;++l)
+											for (int l = 0; l < m_levels; ++l)
 												_frames [i].Eyegaze.Add (Vector4.zero);
 										}
 										for (int l = 0; l < m_levels; ++l)
@@ -385,8 +414,10 @@ public class GstNetworkMultipleTexture : GstBaseTexture {
 									}
 
 								}
-							} else
+							} else {
 								_processor.Process (_player);
+								_player.BlitTexture (m_Texture [i].GetNativeTexturePtr (), m_Texture [i].width, m_Texture [i].height, i);
+							}
 							_frames [i].arrived = false;
 							Timestamp [i] = _player.GetLastImageTimestamp (i);
 

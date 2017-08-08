@@ -11,33 +11,37 @@ public class RTPAudioStream:IAudioStream
 	public RobotConnectionComponent RobotConnector;
 	public GameObject TargetNode;
 
-	GstNetworkAudioStreamer _audioStreamer;
+	public GstIAudioGrabber grabber;
+
+	GstAppNetAudioStreamer _audioStreamer;
 	public int AudioStreamPort=0;
-	bool _audioCreated;
 	RobotInfo _ifo;
 
 	public void Init(RobotInfo ifo)
 	{
 		_ifo = ifo;
-		_audioCreated = false;
 		//Create audio streaming
-		_audioStreamer = TargetNode.AddComponent<GstNetworkAudioStreamer> ();
-		_audioStreamer.SetChannels(1);
+		_audioStreamer = TargetNode.AddComponent<GstAppNetAudioStreamer> ();
+		//_audioStreamer.SetChannels(1);
 
 		AudioStreamPort = Settings.Instance.GetPortValue ("AudioStreamPort", AudioStreamPort);
 		string ip = Settings.Instance.GetValue("Ports","ReceiveHost",_ifo.IP);
 		Debug.Log ("Streaming audio to:" + AudioStreamPort.ToString ());
-		_audioStreamer.AddClient (ip, AudioStreamPort);
+		//_audioStreamer.AddClient (ip, AudioStreamPort);
+		_audioStreamer.SetIP(ip,(uint)AudioStreamPort);
+		_audioStreamer.AttachGrabber(grabber);
 		_audioStreamer.CreateStream();
+		grabber.Start ();
 		_audioStreamer.Stream ();
-		_audioCreated = true;
-		RobotConnector.Connector.SendData("AudioParameters","",false,true);
+		RobotConnector.Connector.SendData(TxKitMouth.ServiceName,"AudioParameters","",false,true);
 
 	}
+
 
 	public void Close()
 	{
 		if (_audioStreamer != null) {
+			grabber.Close ();
 			_audioStreamer.Close();
 			Object.Destroy (_audioStreamer);
 			_audioStreamer = null;
@@ -47,7 +51,7 @@ public class RTPAudioStream:IAudioStream
 	public void Pause()
 	{
 		if (_audioStreamer != null) {
-			_audioStreamer.SetClientVolume(0,0);
+		//	_audioStreamer.SetClientVolume(0,0);
 		}
 			
 	}
@@ -56,7 +60,7 @@ public class RTPAudioStream:IAudioStream
 	public void Resume()
 	{
 		if (_audioStreamer != null) {
-			_audioStreamer.SetClientVolume(0,2);
+		//	_audioStreamer.SetClientVolume(0,2);
 		//	_audioStreamer.CreateStream ();
 		//	_audioStreamer.Stream ();
 		}
@@ -68,6 +72,6 @@ public class RTPAudioStream:IAudioStream
 
 	public void SetAudioVolume (float vol)
 	{
-		_audioStreamer.SetClientVolume(0,vol);
+	//	_audioStreamer.SetClientVolume(0,vol);
 	}
 }

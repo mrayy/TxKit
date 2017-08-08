@@ -5,6 +5,7 @@ using System.Xml;
 using System.IO;
 
 public class TxKitMouth : MonoBehaviour,IDependencyNode {
+	public const string ServiceName="TxMouthServiceModule";
 
 	public RobotConnectionComponent RobotConnector;
 	IAudioStream _audioStream;
@@ -61,6 +62,7 @@ public class TxKitMouth : MonoBehaviour,IDependencyNode {
 	{
 		if (!RobotConnector.IsConnected)
 			return;
+		
 		if (_audioProfile != audioProfile) {
 
 			_audioProfile = audioProfile;
@@ -115,13 +117,13 @@ public class TxKitMouth : MonoBehaviour,IDependencyNode {
 	}
 	public void OnServiceNetValue(string serviceName,int port)
 	{
-		if (serviceName == "AVStreamServiceModule") {
+		if (serviceName == ServiceName) {
 		}
 	}
 	public void SetRobotInfo(RobotInfo ifo,RobotConnector.TargetPorts ports)
 	{
 		_robotIfo = ifo;
-		RobotConnector.Connector.SendData("AudioParameters","",false,true);
+		RobotConnector.Connector.SendData(TxKitMouth.ServiceName,"AudioParameters","",false,true);
 	}
 	void OnRobotConnected(RobotInfo ifo,RobotConnector.TargetPorts ports)
 	{
@@ -132,6 +134,7 @@ public class TxKitMouth : MonoBehaviour,IDependencyNode {
 		if (_audioStream!=null) {
 			_audioStream.Close();
 			_audioStream=null;
+			_audioProfile = "";
 			_audioInited = false;
 		}
 	}
@@ -142,8 +145,11 @@ public class TxKitMouth : MonoBehaviour,IDependencyNode {
 			_audioStream.Close ();
 		}
 		_audioStream = (a = new RTPAudioStream());
-
-
+		GstCustomAudioGrabber grabber;
+		grabber = new GstCustomAudioGrabber();
+		//grabber.Init ("filesrc location=c:/Users/Torso/Downloads/2537.mp3 ! decodebin ! audioconvert ",1, 44100);
+		grabber.Init ("directsoundsrc buffer-time=10",1, 44100);
+		a.grabber =grabber;
 		a.AudioStreamPort = _audioStreamPort;
 		a.TargetNode = gameObject;
 		a.RobotConnector = RobotConnector;

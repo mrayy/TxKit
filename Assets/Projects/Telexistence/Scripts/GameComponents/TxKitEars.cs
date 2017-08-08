@@ -5,6 +5,7 @@ using System.Xml;
 using System.IO;
 
 public class TxKitEars : MonoBehaviour,IDependencyNode {
+	public const string ServiceName="TxEarsServiceModule";
 	public RobotConnectionComponent RobotConnector;
 
 	RobotInfo _robotIfo;
@@ -69,6 +70,7 @@ public class TxKitEars : MonoBehaviour,IDependencyNode {
 	{
 		if (!RobotConnector.IsConnected)
 			return;
+		
 		if (_audioProfile != audioProfile) {
 
 			_audioInited = false;
@@ -85,7 +87,7 @@ public class TxKitEars : MonoBehaviour,IDependencyNode {
 	}
 	public void OnServiceNetValue(string serviceName,int port)
 	{
-		if (serviceName == "AVStreamServiceModule") {
+		if (serviceName == ServiceName) {
 		}
 	}
 	void OnRobotConnected(RobotInfo ifo,RobotConnector.TargetPorts ports)
@@ -98,6 +100,7 @@ public class TxKitEars : MonoBehaviour,IDependencyNode {
 			_audioSource.Close();
 			_audioSource=null;
 		}
+		_audioProfile = "";
 		_audioInited = false;
 	}
 
@@ -156,6 +159,6 @@ public class TxKitEars : MonoBehaviour,IDependencyNode {
 	public void SetRobotInfo(RobotInfo ifo,RobotConnector.TargetPorts ports)
 	{
 		_robotIfo = ifo;
-		RobotConnector.Connector.SendData("AudioParameters","",false,true);
+		RobotConnector.Connector.SendData(TxKitEars.ServiceName,"AudioParameters","",false,true);
 	}
 }

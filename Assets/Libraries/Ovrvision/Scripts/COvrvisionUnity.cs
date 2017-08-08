@@ -37,7 +37,7 @@ public class COvrvisionUnity
     [DllImport(DLL_Name, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
 	static extern bool ovPreStoreCamData(int qt);
 	[DllImport(DLL_Name, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
-	static extern bool ovPreStoreMemoryData(int qt,System.IntPtr data);
+	static extern bool ovPreStoreMemoryData(int qt,System.IntPtr data,bool remapData);
     [DllImport(DLL_Name, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
     static extern void ovGetCamImageBGRA(System.IntPtr img, int eye);
     [DllImport(DLL_Name, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
@@ -141,6 +141,10 @@ public class COvrvisionUnity
     //Ovrvision config save status
     [DllImport(DLL_Name, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
     static extern bool ovSaveCamStatusToEEPROM();
+
+
+	[DllImport(DLL_Name, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
+	extern static private void ovLoadCameraConfiguration([MarshalAs(UnmanagedType.LPStr)]string conf);
 
     //Macro Define
 
@@ -255,12 +259,12 @@ public class COvrvisionUnity
 	}
 
 	//Update camera data
-	public bool UpdateImageMemory(System.IntPtr ptr)
+	public bool UpdateImageMemory(System.IntPtr ptr,bool remapData)
 	{
 		if (!camStatus)
 			return false;
 
-		if (ovPreStoreMemoryData (useProcessingQuality,ptr) == false)
+		if (ovPreStoreMemoryData (useProcessingQuality,ptr,remapData) == false)
 			return false;
 		
 		return true;
@@ -465,5 +469,10 @@ public class COvrvisionUnity
 		}
 
 		return res;
+	}
+
+	public void LoadCameraConfiguration(string config)
+	{
+		ovLoadCameraConfiguration (config);
 	}
 }

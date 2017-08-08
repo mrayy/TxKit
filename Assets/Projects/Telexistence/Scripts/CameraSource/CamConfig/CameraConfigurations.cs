@@ -45,6 +45,8 @@ public class CameraConfigurations  {
 	public EStreamCodec streamCodec=EStreamCodec.Coded;
 	public bool SeparateStreams = false;
 	public int CameraStreams=1;
+
+	public string CamerConfigurationsStr;
 	/*
 	//http://docs.opencv.org/doc/tutorials/calib3d/camera_calibration/camera_calibration.html
 	public float fov=60;			//horizontal field of view for the camera measured in degrees
@@ -114,6 +116,14 @@ public class CameraConfigurations  {
 				break;
 			case "ccw":
 				Rotation[i]=ECameraRotation.CCW;
+				break;
+			}
+		}
+
+		//look for text node
+		while (r.Read ()) {
+			if (r.NodeType == XmlNodeType.Text) {
+				CamerConfigurationsStr = r.Value;
 				break;
 			}
 		}

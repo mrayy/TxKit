@@ -30,6 +30,10 @@ public class FileCameraSource : ICameraSource {
 	{
 		return m_Texture;
 	}
+	public void SetCameraConfigurations (CameraConfigurations config)
+	{
+	}
+
 	public void Init(RobotInfo ifo)
 	{
 		GStreamerCore.Ref();

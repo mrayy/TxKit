@@ -24,7 +24,6 @@ public class RobotConnectionComponent : DependencyRoot {
 		}
 	}
 
-	float[] _RobotJointValues;
 
 
 	public delegate void Delg_OnRobotConnected(RobotInfo ifo, RobotConnector.TargetPorts ports);
@@ -75,11 +74,6 @@ public class RobotConnectionComponent : DependencyRoot {
 			return _connector;
 		}
 	}
-	public float[] RobotJointValues {
-		get {
-			return _RobotJointValues;
-		}
-	}
 
 
 	void OnHMDUnmounted()
@@ -94,7 +88,6 @@ public class RobotConnectionComponent : DependencyRoot {
 		_connector.DataCommunicator.OnMessage += OnMessage;
 		_connector.DataCommunicator.OnRobotInfoDetected += OnRobotInfoDetected;
 		_connector.DataCommunicator.OnRobotStatus += OnRobotStatus;
-		_connector.DataCommunicator.OnJointValues += OnJointValues;
 		_connector.DataCommunicator.OnBumpSensor += OnBumpSensor;
 		_connector.DataCommunicator.OnServiceNetValue += _OnServiceNetValue;
 
@@ -128,14 +121,6 @@ public class RobotConnectionComponent : DependencyRoot {
 	//	Debug.Log ("Message Arrived: " + message.ToString());
 	}
 
-	void OnJointValues(float[] values)
-	{
-		_RobotJointValues = values;
-		/*
-		if (PLCDriverObject != null) {
-			PLCDriverObject.OnTorsoJointValues(values);
-		}*/
-	}
 
 	void OnRobotStatus(IRobotDataCommunicator.ERobotControllerStatus status)
 	{
@@ -179,8 +164,6 @@ public class RobotConnectionComponent : DependencyRoot {
 	void Update () {
 		if(_connector!=null)
 		if (IsConnected) {
-			_connector.SendData("query","",false);
-			_connector.SendData("jointVals","",false);
 
 			if (_connector.IsRobotConnected) {
 				if (OnRobotUpdate != null)
@@ -225,8 +208,7 @@ public class RobotConnectionComponent : DependencyRoot {
 		}
 
 		if (r.ConnectionType == RobotInfo.EConnectionType.WebRTC) {
-			_connector.RobotCommunicator = new WebRTCRobotCommunicator ();
-			_connector.RobotCommunicator._ownerConnection = this;
+
 		} else if (r.ConnectionType == RobotInfo.EConnectionType.RTP ||
 			r.ConnectionType == RobotInfo.EConnectionType.Ovrvision) {
 			_connector.RobotCommunicator = new RTPRobotCommunicator ();

@@ -1,3 +1,5 @@
+// Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
+
 Shader "Unlit/Transparent Coloured RTT"
 {
 	Properties
@@ -53,7 +55,7 @@ Shader "Unlit/Transparent Coloured RTT"
 
 			v2f vert (appdata_t v)
 			{
-				o.vertex =  mul(UNITY_MATRIX_MVP, v.vertex);
+				o.vertex =  UnityObjectToClipPos(v.vertex);
 				o.texcoord = v.vertex.xy*0.5+0.5;
 				//o.texcoord.y=1-o.texcoord.y;
 				o.color = v.color;

@@ -27,16 +27,16 @@ public class DebugRobotStatus : DebugInterface.IDebugElement {
 		
 			str += "Rotation Speed= " + Body.BaseRotation.ToString () + "\n";
 			str += "Motion Speed= " + Body.BaseSpeed.ToString () + "\n";
-		}
-		float[] jv = Robot.RobotJointValues;
-		if (jv != null) {
-			str+="Robot Joint Values: \n";
-			for(int i=0;i<jv.Length;)
-			{
-				str+=jv[i].ToString() + "/ " +jv[i+1];
-				if(i!=jv.Length-2)
-					str+="\n";
-				i+=2;
+
+			float[] jv = Body.RobotJointValues;
+			if (jv != null) {
+				str += "Robot Joint Values: \n";
+				for (int i = 0; i < jv.Length;) {
+					str += jv [i].ToString () + "/ " + jv [i + 1];
+					if (i != jv.Length - 2)
+						str += "\n";
+					i += 2;
+				}
 			}
 		}
 		return str;

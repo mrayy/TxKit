@@ -5,6 +5,7 @@ using System.Xml;
 using System.IO;
 
 public class TxKitDepth: MonoBehaviour,IDependencyNode {
+	public const string ServiceName="TxDepthServiceModule";
 	public RobotConnectionComponent RobotConnector;
 
 	RobotInfo _robotIfo;

@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public static class GUITools {
 	//some code taken from: http://hyunkell.com/blog/rts-style-unit-selection-in-unity-5/
@@ -44,7 +45,7 @@ public static class GUITools {
 		GL.PopMatrix ();
 	}
 
-	public static void DrawCircle(Vector2 center,float radius,int N,Color color)
+	public static void DrawCircle(Vector2 center,float radius,int N,Color color,int skip=0)
 	{
 		_prepareLineMaterial ();
 
@@ -56,21 +57,29 @@ public static class GUITools {
 
 		float step = 2*Mathf.PI / (float)N;
 		Vector2 v1,v2;
-		float a = 0;
+		for (int j = 0; j < 4; ++j) {
+			float a = 0;
 
-		v1 = center;
-		v1.x += Mathf.Cos (a) * radius;
-		v1.y += Mathf.Sin (a) * radius;
-		for (int i = 0; i <= N; ++i) {
+			v1 = center;
+			v1.x += Mathf.Cos (a) * radius;
+			v1.y += Mathf.Sin (a) * radius;
+			int s = skip;
+			for (int i = 0; i <= N; ++i) {
+			
+				v2 = center;
+				v2.x += Mathf.Cos (a) * radius;
+				v2.y += Mathf.Sin (a) * radius;
+				s--;
+				if (s <= 0) {
+					GL.Vertex (v1);
+					GL.Vertex (v2);
+					s = skip;
+				}
+				v1 = v2;
 
-			v2 = center;
-			v2.x += Mathf.Cos (a) * radius;
-			v2.y += Mathf.Sin (a) * radius;
-			GL.Vertex (v1);
-			GL.Vertex (v2);
-			v1 = v2;
-
-			a += step;
+				a += step;
+			}
+			radius -= 1f;
 		}
 
 		GL.End();
@@ -107,7 +116,47 @@ public static class GUITools {
         Graphics.DrawTexture(new Rect(rect.xMax - thickness, rect.yMin, thickness, rect.height), WhiteTexture, UniformRect, 0, 0, 0, 0, color);
         // Bottom
         Graphics.DrawTexture(new Rect(rect.xMin, rect.yMax - thickness, rect.width, thickness), WhiteTexture, UniformRect, 0, 0, 0, 0, color);
-    }
+	}
+
+	static Mesh CircleMesh=null;
+
+	static void CreateCircle()
+	{
+		if (CircleMesh != null)
+			return;
+		int N = 180;
+		float step = 360.0f /(float) N;
+		List<Vector3> vertexList=new List<Vector3>();
+		List<int> lines=new List<int>();
+		Quaternion q=Quaternion.Euler(0,0,step);
+		vertexList.Add (new Vector3 (0f, 0.5f, 0f));
+		vertexList.Add (q*vertexList[0]);
+
+		lines.Add(0);
+		lines.Add(1);
+
+		for(int i=0;i<N-1;i++)
+		{
+			lines.Add(vertexList.Count-1);
+			lines.Add(vertexList.Count);
+
+			vertexList.Add (q * vertexList [vertexList.Count - 1]);
+		}
+
+		Mesh mesh=new Mesh();
+		mesh.vertices = vertexList.ToArray();
+		mesh.SetIndices (lines.ToArray (), MeshTopology.Lines, 0);
+
+		CircleMesh = mesh;
+	}
+
+
+	public static void GraphicsDrawScreeCircleBorder(Rect rect, float thickness, Color color)
+	{
+		Matrix4x4 m=new Matrix4x4();
+		LineMaterial.color = color;
+		Graphics.DrawMesh (CircleMesh, m, LineMaterial, 0);
+	}
 	public static Rect GetScreenRect( Vector3 screenPosition1, Vector3 screenPosition2 )
 	{
 		// Move origin from bottom left to top left

@@ -1,4 +1,6 @@
-﻿Shader "Image/GazeBlit_Circle" {
+﻿// Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
+
+Shader "Image/GazeBlit_Circle" {
 	Properties {
 		_MainTex ("Base (RGB)", 2D) = "white" {}
 	}
@@ -40,7 +42,7 @@
 			v2f vert(a2v  IN) {
 				
 				v2f Out;
-				Out.position = mul(UNITY_MATRIX_MVP, IN.vertex);
+				Out.position = UnityObjectToClipPos(IN.vertex);
 				Out.position.z = 1.0;
 				Out.position.w = 1.0;
 			  	Out.texCoord.xy =IN.texCoord.xy;

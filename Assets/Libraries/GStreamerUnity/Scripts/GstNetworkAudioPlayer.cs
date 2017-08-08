@@ -124,6 +124,7 @@ public class GstNetworkAudioPlayer:IGstPlayer  {
 
 	public GstNetworkAudioPlayer()
 	{
+		GStreamerCore.Ref();
 		m_Instance = mray_gst_createNetworkAudioPlayer();	
 		_audioWrapper = new Wrapper (this);
 	}

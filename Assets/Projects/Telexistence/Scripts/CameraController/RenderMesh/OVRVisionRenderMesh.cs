@@ -153,17 +153,18 @@ public class OVRVisionRenderMesh : ICameraRenderMesh {
 		_lastFrame = CamSource.GetGrabbedBufferID ((int)Eye);
 		if(src!=null && Mat!=null)
 		{
-			Vector2 offset=Vector2.zero;
-			if (Eye == EyeName.LeftEye)
-				offset = Src.Configuration.CamSettings.PixelShiftLeft;
-			else
-				offset = Src.Configuration.CamSettings.PixelShiftRight;
 
 			//if (offset != Vector2.zero) 
-			if(true)
+			if(false)
 			{
+				Vector2 offset=Vector2.zero;
+				if (Eye == EyeName.LeftEye)
+					offset = Src.Configuration.CamSettings.PixelShiftLeft;
+				else
+					offset = Src.Configuration.CamSettings.PixelShiftRight;
+				
 				_Blitter.ProcessingMaterial.SetVector ("PixelShift", offset);
-
+				src.wrapMode = TextureWrapMode.Clamp;
 				src = _Blitter.ProcessTexture (src);
 			}
 

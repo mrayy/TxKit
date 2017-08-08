@@ -71,8 +71,8 @@ public class CustomPupilGazeTrackerInspector : Editor {
 				pupilTracker.DrawMenu += DrawCalibration;
 
 				try{
-				pupilTracker.CalibrationGameObject2D = GameObject.Find ("Calibrator").gameObject.transform.FindChild ("2D Calibrator").gameObject;
-				pupilTracker.CalibrationGameObject3D = GameObject.Find ("Calibrator").gameObject.transform.FindChild ("3D Calibrator").gameObject;
+				pupilTracker.CalibrationGameObject2D = GameObject.Find ("Calibrator").gameObject.transform.Find ("2D Calibrator").gameObject;
+				pupilTracker.CalibrationGameObject3D = GameObject.Find ("Calibrator").gameObject.transform.Find ("3D Calibrator").gameObject;
 				}
 				catch{
 					EditorUtility.DisplayDialog ("Pupil Service Warning", "Calibrator prefab cannot be found, or not complete, please add under main camera ! ", "Will Do");

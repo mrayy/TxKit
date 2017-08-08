@@ -4,12 +4,13 @@ using System.Collections.Generic;
 
 public class JSONDataSerializer : IDataSerializer {
 
-	struct DataInfo
+	class DataInfo
 	{
+		public string key;
 		public string value;
 		public bool statusData;
 	};
-	Dictionary<string,DataInfo> _values = new Dictionary<string, DataInfo> ();
+	Dictionary<string,List<DataInfo>> _values = new Dictionary<string, List<DataInfo>>();
 
 	string _outputValues="";
 	public string SerializeData()
@@ -21,7 +22,9 @@ public class JSONDataSerializer : IDataSerializer {
 
 			foreach(var v in _values)
 			{
-				jobj.AddField (v.Key, v.Value.value);
+				foreach (var k in v.Value) {
+					jobj.AddField (v.Key + ":"+k.key, k.value);
+				}
 			}
 
 			_outputValues= jobj.Print();
@@ -35,49 +38,49 @@ public class JSONDataSerializer : IDataSerializer {
 			if (statusValues)
 				_values.Clear ();
 			else {
-				List<string> keys=new List<string>();
-				foreach (var v in _values) {
-					if (!v.Value.statusData) {
-						keys.Add(v.Key);
-					}
-				}
-				foreach(var v in keys)
-				{
-					_values.Remove(v);
+				foreach (var t in _values) {
+					t.Value.RemoveAll(item => item.statusData==false);
 				}
 			}
 		}
 	}
 
-	public  string GetData(string key)
+	public  string GetData(string target, string key)
 	{
 		string v="";
 		lock(_values)
 		{
-			if (_values.ContainsKey (key))
-				v=_values [key].value;
+			if (_values.ContainsKey (target)) {
+				var r=_values [target].Find (item => item.key == key);
+				if (r != null)
+					v = r.value;
+			}
 		}
 		return v;
 	}
 
-	public  void SetData(string key, string value, bool statusData) 
+	public  void SetData(string target, string key, string value, bool statusData) 
 	{
 		DataInfo di = new DataInfo ();
 		di.statusData = statusData;
+		di.key = key;
 		di.value = value;
 		lock(_values)
 		{
-			if(!_values.ContainsKey(key))
-				_values.Add(key,di);
-			else _values[key]=di;
+			if(!_values.ContainsKey(target))
+				_values.Add(target,new List<DataInfo>());
+			_values[target].Add(di);
 		}
 	}
-	public  void RemoveData(string key) 
+	public  void RemoveData(string target, string key) 
 	{
 		lock(_values)
 		{
-			_values.Remove (key);
+			if (_values.ContainsKey (target)) {
+				_values[target].RemoveAll (item => item.key==key);
+			}
 		}
 	}
+
 
 }

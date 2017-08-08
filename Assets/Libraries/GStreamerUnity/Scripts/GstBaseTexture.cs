@@ -142,6 +142,8 @@ public abstract class GstBaseTexture : MonoBehaviour {
 	{
 		if (components == 1)
 			return TextureFormat.Alpha8;
+		if (components == 2)
+			return TextureFormat.Alpha8;
 		if (components == 3)
 			return TextureFormat.RGBA32;
 		return TextureFormat.RGBA32;

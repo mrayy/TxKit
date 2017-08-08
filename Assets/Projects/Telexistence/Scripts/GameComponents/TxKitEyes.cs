@@ -5,6 +5,7 @@ using System.Xml;
 using System.IO;
 
 public class TxKitEyes : MonoBehaviour,IDependencyNode  {
+	public const string ServiceName="TxEyesServiceModule";
 
 	public RobotConnectionComponent RobotConnector;
 
@@ -160,7 +161,7 @@ public class TxKitEyes : MonoBehaviour,IDependencyNode  {
 	
 	public void OnServiceNetValue(string serviceName,int port)
 	{
-		if (serviceName == "AVStreamServiceModule") {
+		if (serviceName == ServiceName) {
 			_videoValues.Connect(RobotConnector.RobotIP.IP,port);
 			Debug.Log("Net Value Port: "+port);
 		}
@@ -173,7 +174,7 @@ public class TxKitEyes : MonoBehaviour,IDependencyNode  {
 		if (_cameraSource != null)
 			_cameraSource.Pause ();
 		if(RobotConnector.Connector!=null)
-			RobotConnector.Connector.SendData("PauseVideo","",false,true);
+			RobotConnector.Connector.SendData(TxKitEyes.ServiceName,"PauseVideo","",false,true);
 	}
 	public void ResumeVideo()
 	{
@@ -181,7 +182,7 @@ public class TxKitEyes : MonoBehaviour,IDependencyNode  {
 			return;
 		if (_cameraSource != null)
 			_cameraSource.Resume();
-		RobotConnector.Connector.SendData("ResumeVideo","",false,true);
+		RobotConnector.Connector.SendData(TxKitEyes.ServiceName,"ResumeVideo","",false,true);
 	}
 
 	void OnFrameGrabbed(GstBaseTexture texture,int index)
@@ -265,7 +266,7 @@ public class TxKitEyes : MonoBehaviour,IDependencyNode  {
 		}
 		if (false) {
 			if (Input.GetKeyDown (KeyCode.V)) {
-				RobotConnector.Connector.SendData ("Stream", _stream.ToString ());
+				RobotConnector.Connector.SendData (TxKitEyes.ServiceName,"Stream", _stream.ToString ());
 				_stream = !_stream;
 			}
 		}
@@ -301,6 +302,7 @@ public class TxKitEyes : MonoBehaviour,IDependencyNode  {
 				if(reader.NodeType==XmlNodeType.Element)
 				{
 					Configuration.CamSettings.LoadXML (reader);
+
 					break;
 				}
 			}
@@ -361,6 +363,9 @@ public class TxKitEyes : MonoBehaviour,IDependencyNode  {
 		}
 		_camRenderer[0].CreateMesh(EyeName.LeftEye);
 		_camRenderer[1].CreateMesh(EyeName.RightEye);
+
+		if(_cameraSource!=null)
+			_cameraSource.SetCameraConfigurations (Configuration.CamSettings);
 		_camsInited = true;
 	}
 	void _InitCameraRenderers()
@@ -419,6 +424,8 @@ public class TxKitEyes : MonoBehaviour,IDependencyNode  {
 					if (r == null) {
 						if(Configuration.CamSettings.streamCodec==CameraConfigurations.EStreamCodec.Ovrvision)
 							r = cams [i].gameObject.AddComponent<OVRVisionRenderMesh> ();
+						else if(Configuration.CamSettings.streamCodec==CameraConfigurations.EStreamCodec.EyegazeRaw)
+							r = cams [i].gameObject.AddComponent<EyegazeWebcameraRenderMesh> ();//Eyegaze
 						else
 							r = cams [i].gameObject.AddComponent<WebcameraRenderMesh> ();
 					}
@@ -455,6 +462,8 @@ public class TxKitEyes : MonoBehaviour,IDependencyNode  {
 					_camRendererParents[i].transform.position=Anchors[i].transform.position;//Vector3.zero;
 					var attachment=_camRendererParents[i].AddComponent<CameraTransformAttachment>();
 					attachment.attachedAnchor = Anchors [i].transform;
+
+					attachment.body = RobotConnector.GetComponent<TxKitBody> ();
 
 					r._RenderPlane.transform.parent = _camRendererParents[i].transform;
 					r._RenderPlane.transform.localRotation = Quaternion.identity;
@@ -507,13 +516,6 @@ public class TxKitEyes : MonoBehaviour,IDependencyNode  {
 	}
 	void _CreateWebRTCCamera()
 	{
-		WebRTCCameraSource c = new WebRTCCameraSource (gameObject,(int)WebRTCSize.x,(int)WebRTCSize.y);
-		_cameraSource = c;
-		_InitCameraRenderers ();
-		c.Init (_robotIfo);
-
-		if(OnCameraSourceCreated!=null)
-			OnCameraSourceCreated (this,_cameraSource);
 	}
 	void _CreateRTPCamera(int streamsCount)
 	{
@@ -552,7 +554,7 @@ public class TxKitEyes : MonoBehaviour,IDependencyNode  {
 
 		//request netvalue port
 		if(RobotConnector.Connector.RobotCommunicator!=null)
-			RobotConnector.Connector.RobotCommunicator.SetData ("NetValuePort", "AVStreamServiceModule,"+RobotConnector.Connector.DataCommunicator.GetPort().ToString(), false,false);
+			RobotConnector.Connector.RobotCommunicator.SetData ("","NetValuePort", ServiceName+","+RobotConnector.Connector.DataCommunicator.GetPort().ToString(), false,false);
 	}
 	public void SetRobotInfo(RobotInfo ifo,RobotConnector.TargetPorts ports)
 	{
@@ -573,7 +575,7 @@ public class TxKitEyes : MonoBehaviour,IDependencyNode  {
 		{
 			//this should be changed to request system parameters
 			//request A/V settings
-			RobotConnector.Connector.SendData("CameraParameters","",false,true);
+			RobotConnector.Connector.SendData(TxKitEyes.ServiceName,"CameraParameters","",false,true);
 		}
 
 	}

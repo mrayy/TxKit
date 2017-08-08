@@ -70,7 +70,8 @@ public class SinHeadController : MonoBehaviour,IDependencyNode {
 		_impl.Update (Frequency,acceleration);
 		angles = _impl.angles;
 		speedAcc = _impl.speedAcc;
-		User.localRotation = _impl._orientation;
+		if(User!=null)
+			User.localRotation = _impl._orientation;
 		if (Input.GetKeyDown (KeyCode.F5)) {
 			if (acceleration == 0)
 				acceleration = TargetAccel;

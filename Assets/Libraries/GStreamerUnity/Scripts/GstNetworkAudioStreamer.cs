@@ -32,10 +32,10 @@ public class GstNetworkAudioStreamer:IGstStreamer {
 	[DllImport(DllName, CallingConvention = CallingConvention.Cdecl)]
 	extern static private void mray_gst_audioStreamerSetChannels(System.IntPtr p,int c);
 
-	GstUnityImageGrabber _grabber;
 
 	public GstNetworkAudioStreamer()
 	{
+		GStreamerCore.Ref();
 		m_Instance = mray_gst_createAudioNetworkStreamer();	
 	}
 	

@@ -29,6 +29,10 @@ public class NetworkCameraSource : ICameraSource {
 		m_Texture.ConnectToHost (ip, port);
 		m_Texture.Play ();
 	}
+	public void SetCameraConfigurations (CameraConfigurations config)
+	{
+	}
+
 	public void Close()
 	{
 		if (m_Texture != null) {

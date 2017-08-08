@@ -1,4 +1,6 @@
-﻿Shader "TelexistenceGateway/LeapHandsShader" {
+﻿// Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
+
+Shader "TelexistenceGateway/LeapHandsShader" {
   Properties {
     _ColorSpaceGamma ("Color Space Gamma", Float) = 1.0
     _HandsColor("Hands Color", Color) = (0.96,0.725,0.62,1.0)
@@ -34,7 +36,7 @@
 
     frag_in vert(appdata_img v){
       frag_in o;
-      o.position = mul(UNITY_MATRIX_MVP, v.vertex);
+      o.position = UnityObjectToClipPos(v.vertex);
       o.screenPos = ComputeScreenPos(o.position);
       return o;
     }

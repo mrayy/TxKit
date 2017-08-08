@@ -148,7 +148,7 @@ public class RTPAudioSource:IAudioSource
 				_audioPlayer.Add (aplayer);
 
 			}
-			RobotConnector.Connector.SendData ("AudioPort", audioPorts, true);
+			RobotConnector.Connector.SendData (TxKitEars.ServiceName,"AudioPort", audioPorts, true);
 		}
 	}
 	public void Init(RobotInfo ifo)
@@ -157,7 +157,7 @@ public class RTPAudioSource:IAudioSource
 		_audioCreated = false;
 		RobotConnector.Connector.DataCommunicator.OnAudioConfig += OnAudioConfig;
 
-		RobotConnector.Connector.SendData("AudioParameters","",false,true);
+		RobotConnector.Connector.SendData(TxKitEars.ServiceName,"AudioParameters","",false,true);
 
 	}
 
