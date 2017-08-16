@@ -481,6 +481,7 @@
      <Compile Include="Assets\Projects\Telexistence\Scripts\RobotControl\Serializer\JSONDataSerializer.cs" />
      <Compile Include="Assets\Projects\Telexistence\Scripts\RobotControl\Serializer\RTPDataChannel.cs" />
      <Compile Include="Assets\Projects\Telexistence\Scripts\RobotControl\Serializer\XMLDataSerializer.cs" />
+     <Compile Include="Assets\Projects\Telexistence\Scripts\Transition\NEDORobotConnectionStarter.cs" />
      <Compile Include="Assets\Projects\Telexistence\Scripts\Transition\RobotConnectionStarter.cs" />
      <Compile Include="Assets\Projects\Telexistence\Tests\CamRendererTexSnapshot.cs" />
      <Compile Include="Assets\Projects\Telexistence\Tests\JitterMotion.cs" />

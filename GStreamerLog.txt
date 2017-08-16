@@ -5,5 +5,57 @@ Initializing GStreamer
 GStreamerCore - Registering Elements!
 GStreamerCore - GStreamer inited
 Initializing GStreamer - Done
-Info: alloc_len: 43
+mray_gstreamer_initialize
+mray_gstreamer_initialize
+Info: GstAppNetAudioStreamer::Starting with pipeline: appsrc name=src   ! audio/x-raw,endianness=1234,format=F32LE,rate=44100,channels=1 ! audioconvert ! volume volume=2 ! audioresample ! opusenc complexity=5 bitrate-type=vbr frame-size=5 ! rtpopuspay   ! udpsink name=audioSink port=50923 host=192.168.1.3 sync=false 
+Info: GstAppNetAudioStreamer::Finished Linking Pipeline
+Info: CustomAudioGrabber::Starting with pipeline: directsoundsrc buffer-time=10 ! audio/x-raw,endianness=1234,signed=true,width=16,depth=16,rate=44100,channels=1 ! audioconvert !audio/x-raw,format=F32LE,rate=44100 ! appsink name=sink 
+Info: CustomAudioGrabber::Finished Linking Pipeline
+mray_gstreamer_initialize
+mray_gstreamer_initialize
+Info: NetworkAudioPlayer:CreateStream() - Pipeline created
+Info: alloc_len: 46
 Info: Checking is active
+Info: NetworkAudioPlayer:Close() - Connection closed
+mray_gstreamer_initialize
+mray_gstreamer_initialize
+mray_gstreamer_initialize
+mray_gstreamer_initialize
+Info: GstAppNetAudioStreamer::Starting with pipeline: appsrc name=src   ! audio/x-raw,endianness=1234,format=F32LE,rate=44100,channels=1 ! audioconvert ! volume volume=2 ! audioresample ! opusenc complexity=5 bitrate-type=vbr frame-size=5 ! rtpopuspay   ! udpsink name=audioSink port=52490 host=192.168.1.3 sync=false 
+Info: GstAppNetAudioStreamer::Finished Linking Pipeline
+Info: CustomAudioGrabber::Starting with pipeline: directsoundsrc buffer-time=10 ! audio/x-raw,endianness=1234,signed=true,width=16,depth=16,rate=44100,channels=1 ! audioconvert !audio/x-raw,format=F32LE,rate=44100 ! appsink name=sink 
+Info: CustomAudioGrabber::Finished Linking Pipeline
+mray_gstreamer_initialize
+Info: NetworkAudioPlayer:CreateStream() - Pipeline created
+Info: alloc_len: 46
+mray_gstreamer_initialize
+mray_gstreamer_initialize
+mray_gstreamer_initialize
+Info: GstAppNetAudioStreamer::Starting with pipeline: appsrc name=src   ! audio/x-raw,endianness=1234,format=F32LE,rate=44100,channels=1 ! audioconvert ! volume volume=2 ! audioresample ! opusenc complexity=5 bitrate-type=vbr frame-size=5 ! rtpopuspay   ! udpsink name=audioSink port=52508 host=192.168.1.3 sync=false 
+Info: GstAppNetAudioStreamer::Finished Linking Pipeline
+Info: CustomAudioGrabber::Starting with pipeline: directsoundsrc buffer-time=10 ! audio/x-raw,endianness=1234,signed=true,width=16,depth=16,rate=44100,channels=1 ! audioconvert !audio/x-raw,format=F32LE,rate=44100 ! appsink name=sink 
+Info: CustomAudioGrabber::Finished Linking Pipeline
+Info: alloc_len: 46
+mray_gstreamer_initialize
+mray_gstreamer_initialize
+mray_gstreamer_initialize
+Info: GstAppNetAudioStreamer::Starting with pipeline: appsrc name=src   ! audio/x-raw,endianness=1234,format=F32LE,rate=44100,channels=1 ! audioconvert ! volume volume=2 ! audioresample ! opusenc complexity=5 bitrate-type=vbr frame-size=5 ! rtpopuspay   ! udpsink name=audioSink port=52524 host=192.168.1.3 sync=false 
+Info: GstAppNetAudioStreamer::Finished Linking Pipeline
+Info: CustomAudioGrabber::Starting with pipeline: directsoundsrc buffer-time=10 ! audio/x-raw,endianness=1234,signed=true,width=16,depth=16,rate=44100,channels=1 ! audioconvert !audio/x-raw,format=F32LE,rate=44100 ! appsink name=sink 
+Info: CustomAudioGrabber::Finished Linking Pipeline
+Info: alloc_len: 46
+Info: Checking is active
+Info: NetworkAudioPlayer:Close() - Connection closed
+mray_gstreamer_initialize
+mray_gstreamer_initialize
+mray_gstreamer_initialize
+Info: GstAppNetAudioStreamer::Starting with pipeline: appsrc name=src   ! audio/x-raw,endianness=1234,format=F32LE,rate=44100,channels=1 ! audioconvert ! volume volume=2 ! audioresample ! opusenc complexity=5 bitrate-type=vbr frame-size=5 ! rtpopuspay   ! udpsink name=audioSink port=56343 host=192.168.1.3 sync=false 
+Info: GstAppNetAudioStreamer::Finished Linking Pipeline
+Info: CustomAudioGrabber::Starting with pipeline: directsoundsrc buffer-time=10 ! audio/x-raw,endianness=1234,signed=true,width=16,depth=16,rate=44100,channels=1 ! audioconvert !audio/x-raw,format=F32LE,rate=44100 ! appsink name=sink 
+Info: CustomAudioGrabber::Finished Linking Pipeline
+mray_gstreamer_initialize
+mray_gstreamer_initialize
+Info: NetworkAudioPlayer:CreateStream() - Pipeline created
+Info: alloc_len: 46
+Info: Checking is active
+Info: NetworkAudioPlayer:Close() - Connection closed

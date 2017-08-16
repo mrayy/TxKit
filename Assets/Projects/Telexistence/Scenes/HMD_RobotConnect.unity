@@ -1314,12 +1314,12 @@ GameObject:
   - component: {fileID: 1024978007}
   - component: {fileID: 1024978008}
   - component: {fileID: 1024978009}
-  - component: {fileID: 1024978010}
   - component: {fileID: 1024978011}
   - component: {fileID: 1024978012}
   - component: {fileID: 1024978014}
   - component: {fileID: 1024978013}
   - component: {fileID: 1024978015}
+  - component: {fileID: 1024978010}
   m_Layer: 0
   m_Name: _RobotConnector
   m_TagString: Untagged
@@ -1354,7 +1354,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Debugger: {fileID: 1601646641}
-  RobotIndex: 0
+  RobotIndex: 1
   RobotName: TXKIT-8
   PLCDriverObject: {fileID: 0}
 --- !u!114 &1024978009
@@ -1389,10 +1389,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1024978006}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1a51bbd45e6b6d14895dadee5fd4ecd2, type: 3}
+  m_Script: {fileID: 11500000, guid: 967d5bae4c9d37846957f6733471f8c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Robot: {fileID: 1024978008}
+  BodyController: {fileID: 1024978012}
+  Interface: {fileID: 1789781719}
 --- !u!114 &1024978011
 MonoBehaviour:
   m_ObjectHideFlags: 0
